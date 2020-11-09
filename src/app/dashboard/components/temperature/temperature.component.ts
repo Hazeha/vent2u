@@ -4,7 +4,7 @@ import {ControlService} from '../../services/control.service';
 @Component({
     selector: 'app-temperature',
     templateUrl: './temperature.component.html',
-    styleUrls: ['./temperature.component.css']
+    styleUrls: ['../../../_styles/compView.component.css']
 })
 export class TemperatureComponent {
     @Input() temp: number;

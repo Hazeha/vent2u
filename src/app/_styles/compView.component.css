@@ -1,15 +1,17 @@
 header{
   text-align: center;
 }
-.temperature-view {
-  padding: 0 30px;
+.comp-view {
+  padding: 0 25px;
   display: flex;
   flex-direction: column;
 
   justify-content: space-around;
   padding-bottom: 85px;
 }
-
+mat-card{
+  margin-bottom: 10px;
+}
 .temperature-counter {
   padding: 20px 0;
 }
