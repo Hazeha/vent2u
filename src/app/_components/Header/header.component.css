@@ -5,7 +5,8 @@
   color: green;
 }
 p{
-  font-size: 12pt;
+  font-size: 11pt;
+  margin: 0;
 }
 mat-toolbar {
     justify-content: space-between;

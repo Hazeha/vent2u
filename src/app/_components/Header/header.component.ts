@@ -16,7 +16,7 @@ import { LogoutComponent } from './logout/logout.component';
     styleUrls: ['header.component.css']
 })
 export class HeaderComponent {
-  user = 'Username';
+  user = 'Wall Trumper';
 
   @Input() temperature : number;
   @Input() humidity : number;
