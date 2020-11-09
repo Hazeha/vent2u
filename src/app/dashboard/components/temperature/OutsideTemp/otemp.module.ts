@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { OHumidityComponent } from './ohumidity.component';
+import { OTempComponent } from './otemp.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 // Shared Services
-import { WeatherService } from '../../../shared/_services/Weather/weather.service';
+import { WeatherService } from '../../../../_services/Weather/weather.service';
 
 @NgModule({
   declarations: [],
@@ -15,6 +15,6 @@ import { WeatherService } from '../../../shared/_services/Weather/weather.servic
     HttpClientJsonpModule
   ],
   providers: [WeatherService],
-  bootstrap: [OHumidityComponent]
+  bootstrap: [OTempComponent]
 })
-export class OHumidityModule {}
+export class OTempModule {}

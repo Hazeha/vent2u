@@ -1,7 +1,0 @@
-<div id="booking-grid" [style.grid-template-columns]="GetColumnsCount()">
-    <div class="group" *ngFor="let ventGroup of classroom.ventGroups" [style.grid-column]="'span '+ ventGroup.size">
-        <div id="group-grid" class="group-grid" [style.grid-template-columns]="GetColumnsCount(ventGroup)">
-            <vent [vent]="vent" *ngFor="let vent of ventGroup.vents"></vent>
-        </div>
-    </div>
-</div>

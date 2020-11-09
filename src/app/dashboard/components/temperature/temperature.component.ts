@@ -1,13 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { ControlService } from '../../services/control.service';
-
+import { Component, EventEmitter, Output, Input } from '@angular/core';
+import {ControlService} from '../../services/control.service';
 
 @Component({
-  selector: 'app-controle-compoent',
-  templateUrl: './control.component.html',
-  styleUrls: ['./control.component.css']
+    selector: 'app-temperature',
+    templateUrl: './temperature.component.html',
+    styleUrls: ['./temperature.component.css']
 })
-export class ControlComponent implements OnInit {
+export class TemperatureComponent {
+    @Input() temp: number;
+    @Output() temperatureEvent = new EventEmitter<number>();
+    onTempChanged(value: number) {
+        this.temperatureEvent.emit(value);
+    }
 
   constructor(private pr: ControlService) { }
   shadowToggle = true;
@@ -25,8 +29,4 @@ export class ControlComponent implements OnInit {
     this.pr.temperature = this.temperature;
     return;
   }
-
-  ngOnInit(): void {
-  }
-
 }

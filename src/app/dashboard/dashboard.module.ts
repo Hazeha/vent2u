@@ -13,18 +13,14 @@ import { DashboardComponent } from './dashboard.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
-import { MainComponent } from '../_old/main/main.component';
-import { ClaimComponent} from '../_old/claim/claim.component';
 
-import { ClaimGridModule } from '../shared/_components/claim-grid/claim-grid.module';
 
-import { HeaderComponent } from '../shared/_components/Header/header.component';
+import { HeaderComponent } from '../_components/Header/header.component';
 import { MatMenuModule } from '@angular/material/menu';
-import { NavigationComponent } from '../shared/_components/Navigation/navigation.component';
+import { NavigationComponent } from '../_components/Navigation/navigation.component';
 
 // Pipelines
 import { CelsiusPipe } from '../celsius.pipe';
-import { ControlComponent } from './components/control/control.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSliderModule} from '@angular/material/slider';
@@ -35,17 +31,16 @@ import {MatSelectModule} from '@angular/material/select';
 import { SettingsComponent } from './components/settings/settings.component';
 import {MatButtonModule} from '@angular/material/button';
 
+import { MaterialModule } from '../_material/material.module';
+
 
 @NgModule({
   declarations: [
     DashboardComponent,
     // Pages
-    MainComponent,
-    ClaimComponent,
     HeaderComponent,
     NavigationComponent,
     CelsiusPipe,
-    ControlComponent,
     LightsComponent,
     CheckinComponent,
     SettingsComponent,
@@ -54,10 +49,10 @@ import {MatButtonModule} from '@angular/material/button';
   imports: [
     CommonModule,
     RouterModule,
+
     MatIconModule,
     MatToolbarModule,
     MatMenuModule,
-    ClaimGridModule,
     MatCardModule,
     MatDividerModule,
     MatSliderModule,

@@ -17,12 +17,7 @@ import { NotFoundComponent} from './404/notfound.component'; // Unknown page
 import { LoginComponent } from './auth/login/login.component'; // Login for dashboard
 import { DashboardComponent } from './dashboard/dashboard.component'; // This is the UI behind Auth - This is our main view.
 
-// Child Routes Dashboard
-import { HumidityComponent } from './_old/humidity/humidity.component'; // Page Humidity
-import { ClaimComponent } from './_old/claim/claim.component'; // Page Claiim
-import { TemperatureComponent } from './_old/temperature/temperature.component'; // Page Temperature
-import { ClassComponent} from './_old/class/class.component'; // Page Class
-import { ControlComponent } from './dashboard/components/control/control.component';
+import { TemperatureComponent } from './dashboard/components/temperature/temperature.component'; // Page Temperature
 import { LightsComponent } from './dashboard/components/lights/lights.component';
 import { CheckinComponent } from './dashboard/components/checkin/checkin.component';
 import { SettingsComponent } from './dashboard/components/settings/settings.component';

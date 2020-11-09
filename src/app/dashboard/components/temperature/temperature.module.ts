@@ -15,7 +15,7 @@ import { OTempComponent } from './OutsideTemp/otemp.component';
 import { OTempModule } from './OutsideTemp/otemp.module';
 
 // Shared Modules
-import { PresetsModule } from '../../shared/_components/Presets/presets.module';
+import { PresetsModule } from '../../../_components/Presets/presets.module';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
