@@ -1,14 +1,3 @@
-  <mat-toolbar>
-    <span id="logo" routerLink="Dashboard">Vent<b style="color: green">2</b>u</span>
-    <span>
-      <mat-icon>menu</mat-icon>
-    </span>
-  </mat-toolbar>
-
-  <!--  Page Output-->
-  <div class="page">
-    <router-outlet></router-outlet>
-  </div>
-
- 
-    <nav>
+<app-header></app-header>
+<router-outlet (activate)="componentAdded($event)"></router-outlet>
+<app-navigation [temperature]='temperature' [humidity]='humidity'></app-navigation>

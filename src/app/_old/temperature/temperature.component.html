@@ -1,0 +1,48 @@
+
+
+<div class="flex-layout">
+  <header>
+    <h1>Temperature</h1>
+  </header>
+    <div class="temperature-view">
+      <mat-card class="config-card" [class.mat-elevation-z2]="!shadowToggle" [class.mat-elevation-z2]="shadowToggle">
+        <h2 class="centered-text">Temperature</h2>
+        <div>
+          <img class="rounded-centered" src="https://www.flaticon.com/svg/static/icons/svg/803/803469.svg" height="100px" width="100px">
+        </div>
+        <mat-divider></mat-divider>
+        <div>
+          <div>
+            <mat-slider class="centered" thumbLabel [displayWith]="formatTemperature" step="0.5" tickInterval="0.1" min="18" max="26" (input)="temperatureChange($event)" [value]="temperature"></mat-slider>
+          </div>
+          <div>
+            <label class="align-left">min</label>
+            <span class="example-spacer"></span>
+            <label class="align-right">max</label>
+          </div>
+        </div>
+        <h1 class="centered-text">{{temperature}}&#176;</h1>
+      </mat-card>
+
+        <mat-card class="outside-inside-temp">
+            <outside-temperature></outside-temperature>
+          <div class="inside-temp">
+            Temperature In
+            <br>
+            4&#176;C
+          </div>
+            <div class="inside-temp">
+              Humidity Out
+              <br>
+              20%
+            </div>
+
+            <div class="inside-temp">
+              Humidity Inside
+              <br>
+              20%
+            </div>
+        </mat-card>
+<!--        <presets></presets>-->
+    </div>
+</div>

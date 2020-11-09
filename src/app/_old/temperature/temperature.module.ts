@@ -11,16 +11,17 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 // View Components
 import { TemperatureComponent } from './temperature.component';
-import { DashboardSlider } from './Slider/slider.component';
 import { OTempComponent } from './OutsideTemp/otemp.component';
 import { OTempModule } from './OutsideTemp/otemp.module';
 
 // Shared Modules
 import { PresetsModule } from '../../shared/_components/Presets/presets.module';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
 @NgModule({
   declarations: [
     TemperatureComponent,
-    DashboardSlider,
+
     OTempComponent
   ],
   exports: [
@@ -33,7 +34,9 @@ import { PresetsModule } from '../../shared/_components/Presets/presets.module';
     MatSliderModule,
     MatToolbarModule,
     OTempModule,
-    PresetsModule
+    PresetsModule,
+    MatCardModule,
+    MatDividerModule
   ]
 })
 export class TemperatureModule { }

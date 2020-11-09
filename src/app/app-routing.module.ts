@@ -15,22 +15,25 @@ import { AuthGuard } from './auth/auth.guard';
 // Main Routes - Depending on login status.
 import { NotFoundComponent} from './404/notfound.component'; // Unknown page
 import { LoginComponent } from './auth/login/login.component'; // Login for dashboard
-import { DashboardComponent } from './views/dashboard.component'; // This is the UI behind Auth - This is our main view.
+import { DashboardComponent } from './dashboard/dashboard.component'; // This is the UI behind Auth - This is our main view.
 
 // Child Routes Dashboard
-import { HumidityComponent } from './views/humidity/humidity.component'; // Page Humidity
-import { ClaimComponent } from './views/claim/claim.component'; // Page Claiim
-import { TemperatureComponent } from './views/temperature/temperature.component'; // Page Temperature
-import { ClassComponent} from './views/class/class.component'; // Page Class
-
+import { HumidityComponent } from './_old/humidity/humidity.component'; // Page Humidity
+import { ClaimComponent } from './_old/claim/claim.component'; // Page Claiim
+import { TemperatureComponent } from './_old/temperature/temperature.component'; // Page Temperature
+import { ClassComponent} from './_old/class/class.component'; // Page Class
+import { ControlComponent } from './dashboard/components/control/control.component';
+import { LightsComponent } from './dashboard/components/lights/lights.component';
+import { CheckinComponent } from './dashboard/components/checkin/checkin.component';
+import { SettingsComponent } from './dashboard/components/settings/settings.component';
 
 const routes: Routes = [
   { path: 'Dashboard', component: DashboardComponent, canLoad: [AuthGuard],
     children: [
+      { path: 'CheckIn', component: CheckinComponent },
       { path: 'Temperature', component: TemperatureComponent, },
-      { path: 'Humidity', component: HumidityComponent },
-      { path: 'Claim', component: ClaimComponent },
-      { path: 'Classroom', component: ClassComponent }
+      { path: 'Lights', component: LightsComponent },
+      { path: 'Settings', component: SettingsComponent }
     ] },
   { path: '',   component: LoginComponent },
   { path: '**', component: NotFoundComponent }

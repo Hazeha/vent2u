@@ -1,0 +1,52 @@
+<div class="flex-layout">
+  <header>
+    <h1>Lights</h1>
+  </header>
+  <div class="temperature-view">
+    <mat-card class="config-card" [class.mat-elevation-z2]="!shadowToggle" [class.mat-elevation-z2]="shadowToggle">
+      <div>
+        <h2 class="centered-text">Lights</h2>
+      </div>
+      <div>
+        <img class="rounded-centered" src="https://www.flaticon.com/svg/static/icons/svg/117/117944.svg" height="100px" width="100px">
+      </div>
+      <mat-divider></mat-divider>
+      <div>
+        <div>
+          <mat-slider class="centered" thumbLabel [displayWith]="formatLights" tickInterval="1" min="0" max="3" (input)="lightsChange($event)" [value]="lights"></mat-slider>
+        </div>
+        <div>
+          <label class="align-left">min</label>
+          <span class="example-spacer"></span>
+          <label class="align-right">max</label>
+        </div>
+      </div>
+      <h1 class="centered-text">{{lightsText}}</h1>
+    </mat-card>
+
+    <mat-card class="outside-inside-temp">
+      <div class="inside-temp">
+        Outside UV Radiation
+        <br>
+        400
+      </div>
+      <div class="inside-temp">
+        Personal Light
+        <br>
+        50%
+      </div>
+      <div class="inside-temp">
+        Sun Direction
+        <br>
+        40NV
+      </div>
+
+      <div class="inside-temp">
+        Avg Light in Class
+        <br>
+        20%
+      </div>
+    </mat-card>
+    <!--        <presets></presets>-->
+  </div>
+</div>

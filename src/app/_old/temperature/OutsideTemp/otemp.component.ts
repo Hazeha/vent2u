@@ -6,7 +6,7 @@ import { WeatherService } from '../../../shared/_services/Weather/weather.servic
     template: `
     <div class="outside-temp">
         <span *ngIf="isLoading">Getting data...</span>
-        <span *ngIf="!isLoading">Outside {{ temperature }}&#176;C</span>
+        <span *ngIf="!isLoading">Temperature Out {{ temperature }}&#176;C</span>
     </div>`,
     styleUrls: ['./otemp.component.css'],
     providers: [WeatherService]

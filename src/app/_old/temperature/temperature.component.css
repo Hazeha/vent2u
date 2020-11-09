@@ -1,0 +1,106 @@
+header{
+  text-align: center;
+}
+.temperature-view {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around;
+    padding-bottom: 85px;
+}
+
+.temperature-counter {
+    padding: 20px 0;
+}
+
+h2 {
+    text-align: center;
+}
+
+.outside-inside-temp {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 30px;
+    margin-top: 30px;
+}
+
+.inside-temp {
+    border: 1px solid #000;
+    text-align: center;
+    padding: 5px 0;
+}
+
+.flex-layout {
+    display: flex;
+    flex-direction: column;
+}
+.config-card{
+  height: auto;
+
+}
+
+
+/*Test Site*/
+.btn-round {
+  background-color: #d23f31;
+  border-radius: 999em;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  line-height: 1;
+  font-size: 36px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-round span {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -22px;
+  color: #FFF;
+}
+.config-card {
+  background-color: rgb(240, 245, 245);
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.centered-text {
+  vertical-align: bottom;
+  text-align: center;
+}
+
+.align-left {
+  float: left;
+  text-align: left;
+  width: 20px;
+}
+
+.align-right {
+  float: right;
+  text-align: right;
+  width: 20px;
+}
+
+.rounded {
+  border-radius: 50%;
+}
+
+.rounded-centered {
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
