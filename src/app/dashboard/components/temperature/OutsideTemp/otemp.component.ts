@@ -4,10 +4,11 @@ import { WeatherService } from '../../../../_services/Weather/weather.service';
 @Component({
     selector: 'outside-temperature',
     template: `
-    <div class="inside-temp">
+    <div class="info-content">
       <mat-icon>wb_cloudy</mat-icon>
+      <br>
         <span *ngIf="isLoading">Getting data...</span>
-        <span *ngIf="!isLoading">Temperature Out {{ temperature }}&#176;C</span>
+        <span *ngIf="!isLoading">Temperature Out <br> {{ temperature }}&#176;C</span>
     </div>`,
     styleUrls: ['../../../../_styles/compView.component.css'],
     providers: [WeatherService]
