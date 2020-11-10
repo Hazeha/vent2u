@@ -12,12 +12,12 @@ export class TemperatureComponent {
     onTempChanged(value: number) {
         this.temperatureEvent.emit(value);
     }
-
   constructor(private pr: ControlService) { }
   shadowToggle = true;
   humidity = this.pr.humidity || 0;
   temperature = this.pr.temperature || 18;
-  lights = this.pr.lights || 0;
+  fanSpeed = this.pr.fanSpeed || 20;
+  lights = this.pr.lights || 18;
   lightsText = this.pr.lightsText || 'Off';
 
   formatTemperature(value: number) {
@@ -27,6 +27,15 @@ export class TemperatureComponent {
   temperatureChange(event: any) {
     this.temperature = event.value;
     this.pr.temperature = this.temperature;
+    return;
+  }
+  formatFanSpeed(value: number) {
+    this.fanSpeed = value;
+    return this.fanSpeed + "%";
+  }
+  changeFanSpeed(event: any) {
+    this.fanSpeed = event.value;
+    this.pr.fanSpeed = this.fanSpeed;
     return;
   }
 }

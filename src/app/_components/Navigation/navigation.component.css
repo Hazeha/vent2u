@@ -7,6 +7,9 @@ nav {
     margin-top: auto;
     position: fixed;
     bottom: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 nav ul {

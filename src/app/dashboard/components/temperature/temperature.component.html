@@ -18,24 +18,34 @@
             <span class="example-spacer"></span>
             <label class="align-right">max</label>
           </div>
+
+          <h2 class="centered-text" style="margin: 0">{{temperature}}&#176;</h2>
         </div>
-        <h1 class="centered-text">{{temperature}}&#176;</h1>
+
+        <div>
+          <mat-icon class="">speed</mat-icon>
+          <mat-slider class="centered" thumbLabel [displayWith]="formatFanSpeed" step="1" tickInterval="0.1" min="0" max="100" (input)="changeFanSpeed($event)" [value]="fanSpeed"></mat-slider>
+          <h2 class="centered-text" style="margin: 0">{{fanSpeed}}%</h2>
+        </div>
       </mat-card>
 
-        <mat-card class="outside-inside-temp">
+        <mat-card class="outside-inside-comp config-card">
             <outside-temperature></outside-temperature>
           <div class="inside-temp">
+            <mat-icon>house</mat-icon>
             Temperature In
             <br>
             4&#176;C
           </div>
             <div class="inside-temp">
+              <mat-icon>invert_colors</mat-icon>
               Humidity Out
               <br>
               20%
             </div>
 
             <div class="inside-temp">
+              <mat-icon>water_damage</mat-icon>
               Humidity Inside
               <br>
               20%

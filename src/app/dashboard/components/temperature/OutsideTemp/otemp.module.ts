@@ -15,6 +15,6 @@ import { WeatherService } from '../../../../_services/Weather/weather.service';
     HttpClientJsonpModule
   ],
   providers: [WeatherService],
-  bootstrap: [OTempComponent]
+  bootstrap: []
 })
 export class OTempModule {}

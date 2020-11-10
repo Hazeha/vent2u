@@ -8,4 +8,5 @@ export class ControlService {
   temperature: number;
   lights: number;
   lightsText: string;
+  fanSpeed: number;
 }
