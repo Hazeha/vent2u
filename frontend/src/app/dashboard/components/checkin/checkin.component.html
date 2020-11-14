@@ -1,0 +1,75 @@
+<div class="flex-layout">
+  <header>
+    <h1>Check-In</h1>
+  </header>
+  <div class="temperature-view comp-view">
+<!--    This should be updated with the number of rooms in db-->
+    <mat-form-field appearance="outline">
+      <mat-label mat-raised>Choose a Room</mat-label>
+      <mat-select matNativeControl>
+
+        <mat-option *ngFor="let room of rooms; index as i;" value="{{1}}" >{{room}}D3-17</mat-option>
+
+
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Chose Seat</mat-label>
+      <mat-select matNativeControl>
+        <mat-option value="1"> <mat-icon style="color: darkred">chair</mat-icon></mat-option>
+        <mat-option value="2"><mat-icon style="color: darkred">chair</mat-icon></mat-option>
+        <mat-option value="3"><mat-icon style="color: darkgreen">chair</mat-icon></mat-option>
+      </mat-select>
+    </mat-form-field>
+    <h2>Select on screen</h2>
+    <mat-card class="chair-selector select-chair-group-10x2 config-card">
+
+      <div class="chair-group">
+        <mat-icon class="chair-select" style="color: darkred; border: 2px solid green; border-radius: 10px">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+      </div>
+      <div>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+      </div>
+      <div>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+      </div>
+      <div>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
+        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+      </div>
+    </mat-card>
+
+      <button mat-raised-button>Check In</button>
+
+
+    <!--        <presets></presets>-->
+  </div>
+</div>
