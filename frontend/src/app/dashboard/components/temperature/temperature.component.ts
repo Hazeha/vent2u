@@ -44,7 +44,7 @@ export class TemperatureComponent implements OnInit{
   getPresets(id){
     this.presetService.getPresets(id).subscribe(data => {
         this.currentPreset = data;
-        console.log(data);
+        console.log(data + 'Temp');
       },
       error => {
         console.log(error);
