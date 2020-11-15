@@ -11,7 +11,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 import { AuthModule } from './auth/auth.module';
 // Modules TODO Should be moved to dashboard.
-import { TemperatureModule } from './dashboard/components/temperature/temperature.module';
+
 import { LogoutComponent } from './_components/Header/logout/logout.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -29,7 +29,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TemperatureModule,
     AuthModule,
     DashboardModule,
     MatButtonModule,

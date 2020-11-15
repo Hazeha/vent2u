@@ -40,7 +40,7 @@ exports.getPresets = (req, res) => {
         });
     });
 }
-
+// Get specific preset by id
 exports.getPreset = (req, res) => {
     const id = req.params.user_id;
     Preset.findByPk(id).then(data => {
@@ -48,20 +48,25 @@ exports.getPreset = (req, res) => {
     })
 }
 
-
-// NOT IN USE
-exports.findPreset = (req, res) => {
-    const user_id = req.query.user_id;
-    let condition = user_id ? { user_id: { [Op.like]: `${user_id}` } } : null;
-
-    Preset.findPreset({ where: condition })
-        .then(data => {
-            res.send(data);
+exports.putPreset = (req, res) => {
+    const id = req.params.id;
+    Preset.update(req.body, {
+        where: { id: id }
+    })
+        .then(num => {
+            if (num == 1) {
+                res.send({
+                    message: "Presets was updated successfully."
+                });
+            } else {
+                res.send({
+                    message: `Cannot update Presets with id=${id}. Maybe Preset was not found or req.body is empty!`
+                });
+            }
         })
         .catch(err => {
             res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving Preset."
+                message: "Error updating Preset with id=" + id
             });
         });
 };

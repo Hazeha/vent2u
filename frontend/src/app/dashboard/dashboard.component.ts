@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   testUserId = 1;
 
   // This is for user loading
-  getUser(id) {
+  getUser(id): void{
     this.userService.getUser(id)
       .subscribe(
         data => {
@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
   }
 
   // This is for preset loading
-  getPresets(id){
+  getPresets(id): void{
     this.presetService.getPresets(id).subscribe(data => {
         this.currentPreset = data;
         console.log(data);
@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getPresets(this.testUserId);
     this.message = '';
     this.getUser(this.testUserId);

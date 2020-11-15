@@ -39,6 +39,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 
 import { MaterialModule } from '../_material/material.module';
+import {UserService} from "../_services/user.service";
+import {PresetService} from "../_services/preset.service";
 
 
 
@@ -77,6 +79,10 @@ import { MaterialModule } from '../_material/material.module';
   ],
   exports: [
     CelsiusPipe
+  ],
+  providers: [
+    UserService,
+    PresetService
   ]
 })
 export class DashboardModule { }

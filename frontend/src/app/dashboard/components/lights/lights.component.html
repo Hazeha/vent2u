@@ -3,7 +3,7 @@
     <h1>Lights</h1>
   </header>
   <div class="comp-view">
-    <mat-card class="config-card" [class.mat-elevation-z2]="!shadowToggle" [class.mat-elevation-z2]="shadowToggle">
+    <mat-card class="config-card">
       <div>
         <h2 class="centered-text">Lights</h2>
       </div>
@@ -13,7 +13,14 @@
       <mat-divider></mat-divider>
       <div>
         <div>
-          <mat-slider class="centered" thumbLabel [displayWith]="formatLights" tickInterval="1" min="0" max="3" (input)="lightsChange($event)" [value]="lights"></mat-slider>
+          <mat-slider
+            class="centered"
+            thumbLabel
+            tickInterval="1"
+            min="0" max="3"
+            #lightSlider
+            [value]="this.currentPresets.light"
+            (valueChange)="updateLight(lightSlider.value)">></mat-slider>
         </div>
         <div>
           <label class="align-left">min</label>
@@ -21,7 +28,14 @@
           <label class="align-right">max</label>
         </div>
       </div>
-      <h1 class="centered-text">{{lightsText}}</h1>
+      <div [ngSwitch]="lightSlider.value">
+        <h1 class="centered-text" *ngSwitchCase="0">Lights Off</h1>
+        <h1 class="centered-text" *ngSwitchCase="1">Dimmed Light</h1>
+        <h1 class="centered-text" *ngSwitchCase="2">Normal Light</h1>
+        <h1 class="centered-text" *ngSwitchCase="3">Bright Light</h1>
+        <h1 class="centered-text" *ngSwitchDefault>Error</h1>
+      </div>
+
     </mat-card>
 
     <mat-card class="info-container config-card">
@@ -56,8 +70,6 @@
         <br>
         20%
       </div>
-
     </mat-card>
-    <!--        <presets></presets>-->
   </div>
 </div>

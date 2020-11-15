@@ -1,29 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
-const baseUrl = 'http://localhost:8080/api/preset';
+import { Presets } from './preset';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PresetService {
-  temp: number;
-  fan: number;
-  light: number;
-  lights: number;
-  lightsText: string;
-
-
+  presetUrl = 'http://localhost:8080/api/preset';
   constructor(private http: HttpClient) { }
-  createPreset(data) {
-    return this.http.post(baseUrl, data);
+
+  /** GET heroes from the server */
+  getPresets(id: number): Observable<Presets[]> {
+    return this.http.get<Presets[]>(`${this.presetUrl}/${id}`);
   }
-  getPresets(id) {
-    return this.http.get(`${baseUrl}/${id}`);
+  putPresets(id, data): Observable<any> {
+    return this.http.put(`${this.presetUrl}/${id}`, data);
   }
-  updatePreset(id, data) {
-    return this.http.put(`${baseUrl}/${id}`, data);
-  }
-  deletePreset(id) {
-    return this.http.delete(`${baseUrl}/${id}`);
-  }
+
+  // createPreset(data) {
+  //   return this.http.post(presetUrl, data);
+  // }
+  // getPresets(id) {
+  //   return this.http.get(`${presetUrl}/${id}`);
+  // }
+  // updatePreset(id, data) {
+  //   return this.http.put(`${presetUrl}/${id}`, data);
+  // }
+  // deletePreset(id) {
+  //   return this.http.delete(`${presetUrl}/${id}`);
+  // }
 }

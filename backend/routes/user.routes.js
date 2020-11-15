@@ -9,12 +9,10 @@ module.exports = app => {
     // TODO Create Presets.
 
     // TODO Update Presets.
-
+    router.put("/preset/:id", presets.putPreset);
     // TODO Delete Presets.
 
     // TODO Select Seat.
-    // Retrieve all published Tutorials
-    router.get("/published", presets.listAllSeatsInRoom);
 
     // TODO Retrieve Preset data.
     router.get("/preset/:user_id", presets.getPreset);

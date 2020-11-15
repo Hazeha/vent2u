@@ -18,9 +18,8 @@
               min="18"
               max="26"
               #tempSlider
-              [value]="this.currentPreset.temp">
-<!--              [displayWith]="formatTemperature"-->
-<!--              (input)="changeTemperature($event)"-->
+              [value]="this.currentPresets.temp"
+              (valueChange)="updateTemp(tempSlider.value)">
             </mat-slider>
           </div>
           <div>
@@ -43,9 +42,8 @@
             min="0"
             max="100"
             #fanSlider
-            [value]="this.currentPreset.fan">
-            <!--            (input)="changeFanSpeed($event)"-->
-          <!--            [displayWith]="formatFanSpeed"-->
+            [value]="currentPresets.fan"
+            (valueChange)="updateFan(fanSlider.value)">
           </mat-slider>
           <h2 class="centered-text" style="margin: 0">{{fanSlider.value}}%</h2>
         </div>
