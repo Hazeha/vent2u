@@ -1,0 +1,13 @@
+<mat-toolbar>
+    <span id="logo" routerLink="/Dashboard/Temperature">Vent<b>2</b>u</span>
+  <div *ngIf="currentUser">
+    <p>{{currentUser.username}}</p>
+  </div>
+  <div *ngIf="!currentUser">
+    <br />
+    <p>Login</p>
+  </div>
+</mat-toolbar>
+
+
+
