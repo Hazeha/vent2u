@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
-import { Presets } from '../../../_services/preset';
+import { Presets } from '../../../_interface/preset';
 import { PresetService } from '../../../_services/preset.service';
 
 @Component({

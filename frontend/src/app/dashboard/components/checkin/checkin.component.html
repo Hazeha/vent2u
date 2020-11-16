@@ -7,69 +7,34 @@
     <mat-form-field appearance="outline">
       <mat-label mat-raised>Choose a Room</mat-label>
       <mat-select matNativeControl>
-
-        <mat-option *ngFor="let room of rooms; index as i;" value="{{1}}" >{{room}}D3-17</mat-option>
-
-
+        <mat-option *ngFor="let room of rooms; index as i;" value="{{i}}" (onSelectionChange)="setRoom(i)">
+          {{room.name}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
+
+
 
     <mat-form-field appearance="outline">
-      <mat-label>Chose Seat</mat-label>
+      <mat-label>{{ currentRoom == null ? "Select Room" : "Select Seat" }}</mat-label>
       <mat-select matNativeControl>
-        <mat-option value="1"> <mat-icon style="color: darkred">chair</mat-icon></mat-option>
-        <mat-option value="2"><mat-icon style="color: darkred">chair</mat-icon></mat-option>
-        <mat-option value="3"><mat-icon style="color: darkgreen">chair</mat-icon></mat-option>
+        <mat-option *ngFor="let vent of vents; index as i;"(onSelectionChange)="setSeat(i)">
+          <mat-icon [ngStyle]="{'color':vent.user_id !== null ? 'red' : 'green' , 'border':currentSeat === i ? 'black' : 'none'}">chair</mat-icon>
+          {{ vent.id }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-divider></mat-divider>
     <h2>Select on screen</h2>
-    <mat-card class="chair-selector select-chair-group-10x2 config-card">
-
-      <div class="chair-group">
-        <mat-icon class="chair-select" style="color: darkred; border: 2px solid green; border-radius: 10px">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-      </div>
-      <div>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-      </div>
-      <div>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-      </div>
-      <div>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>
-        <mat-icon class="chair-select" style="color: darkred">chair</mat-icon>
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
-<!--        <mat-icon class="chair-select" style="color: darkgreen">chair</mat-icon>-->
+    <mat-card class="chair-selector select-chair-group config-card">
+      <div class="chair-select" *ngFor="let chairs of vents; index as i;"(click)="setSeat(i)">
+        <mat-icon [ngStyle]="{'color':chairs.user_id !== null ? 'red' : 'green'}"
+                  class="chair-select">
+          chair
+        </mat-icon>
       </div>
     </mat-card>
 
-      <button mat-raised-button>Check In</button>
-
-
-    <!--        <presets></presets>-->
+      <button mat-raised-button (click)="updatePreset();">Check In</button>
   </div>
 </div>

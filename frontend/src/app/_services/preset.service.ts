@@ -3,17 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Presets } from './preset';
+import { Presets } from '../_interface/preset';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PresetService {
   presetUrl = 'http://localhost:8080/api/preset';
+  currentPresetID: any;
   constructor(private http: HttpClient) { }
-
   /** GET heroes from the server */
   getPresets(id: number): Observable<Presets[]> {
+    this.currentPresetID = {id};
     return this.http.get<Presets[]>(`${this.presetUrl}/${id}`);
   }
   putPresets(id, data): Observable<any> {
