@@ -5,8 +5,8 @@ const Op = db.Sequelize.Op;
 
 // Retrieve all Tutorials from the database.
 exports.getAll = (req, res) => {
-    const roomID = req.query.id;
-    Vent.findAll( { where : { room: 1}})
+    const room = req.params.room;
+    Vent.findAll({ where: { room: room } })
         .then(data => {
             res.send(data);
         })
