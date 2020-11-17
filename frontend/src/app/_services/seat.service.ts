@@ -11,7 +11,7 @@ export class SeatService {
 
   /** GET Rooms from the server */
   getAll(room) {
-    return this.http.get(this.seatUrl, room);
+    return this.http.get(`${this.seatUrl}/${room}`, room);
   }
   putVent(id, data): Observable<any> {
     return this.http.put(`${this.seatUrl}/${id}`, data);

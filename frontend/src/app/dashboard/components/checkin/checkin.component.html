@@ -28,7 +28,8 @@
       <div class="chair-select" *ngFor="let chairs of vents; index as i;" (click)="setVent(i)" value="{{i}}">
         <mat-icon [ngStyle]="{
         'color':chairs.user_id !== null ? 'red' : 'green',
-        'border':chairs.id === currentVent+1 ? '1px solid black' : 'none'
+        'border':chairs.id === currentVent+1 ? '3px dotted green' : 'none',
+        'border-radius':chairs.id === currentVent+1 ? '10px' : 'none'
         }"
                   class="chair-select">
           chair
@@ -36,6 +37,6 @@
       </div>
     </mat-card>
 
-      <button mat-raised-button (click)="updatePreset()">Check In</button>
+      <button mat-raised-button (click)="updatePreset(); openDialog()">Check In</button>
   </div>
 </div>

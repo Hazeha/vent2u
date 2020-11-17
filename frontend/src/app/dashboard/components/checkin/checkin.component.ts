@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject} from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { SeatService } from '../../../_services/seat.service';
 import { RoomService } from '../../../_services/room.service';
 import {PresetService} from '../../../_services/preset.service';
 
-
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html',
@@ -18,7 +21,7 @@ export class CheckinComponent implements OnInit {
   currentIndex = null;
   private seatData: any;
 
-  constructor(private roomService: RoomService, private seatService: SeatService, private presetService: PresetService) { }
+  constructor(private roomService: RoomService, private seatService: SeatService, private presetService: PresetService, public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
@@ -45,37 +48,11 @@ export class CheckinComponent implements OnInit {
     console.log(this.currentRoom, 'set as current room');
     this.getSeats();
   }
-  // getVents() {
-  //   this.seatService.getAll(this.currentRoom)
-  //     .subscribe(
-  //       data => {
-  //         this.vents = data;
-  //         console.log(data);
-  //       },
-  //       error => {
-  //         console.log(error);
-  //       });
-  // }
+
   setVent(id) {
     this.currentVent = id;
     console.log(this.currentVent, 'set as current seat');
   }
-  //
-  // updatePreset(){
-  //   this.seatData = {
-  //     room: this.currentRoom,
-  //     seat: this.currentVent
-  //   };
-  //   this.presetService.putPresets(1, this.seatData)
-  //     .subscribe(
-  //       response => {
-  //         this.currentPresets.seat = this.currentVent;
-  //         this.currentPresets.room = this.currentRoom;
-  //       }
-  //     );
-  //   console.log('Seat and Room Selected');
-  // }
-
   getSeats() {
     this.seatService.getAll(this.currentRoom)
       .subscribe(
@@ -125,4 +102,12 @@ export class CheckinComponent implements OnInit {
   //
   // resultRoom: [];
 
+}
+
+@Component({
+    selector: 'dialog-data-example-dialog',
+    template: `<div style="width: 40%">Det Bra</div>`
+  })
+  export class DialogDataExampleDialog {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

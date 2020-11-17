@@ -7,9 +7,9 @@
   <div class="comp-view">
     <mat-card class="config-card">
       <h2>Account</h2>
-      <p>Name: Trump Jr.</p>
-      <p>Email: trump@harris-lover.com</p>
-      <p>Password: BiddenKissMyAss2020</p>
+      <p>Name: {{currentUser.name}}</p>
+      <p>Username: {{currentUser.username}}</p>
+      <p>Location: {{currentPreset.room}} : {{currentPreset.seat}}</p>
       <div style="text-align: center">
         <button mat-raised-button>Change Account settings</button>
       </div>
@@ -17,9 +17,9 @@
     </mat-card>
     <mat-card class="config-card">
       <h2>Presets</h2>
-      <p>Start Temperature: 19c</p>
-      <p>Start fan speed: 50%</p>
-      <p>Start Lights: 80%</p>
+      <p>Start Temperature: {{currentPreset.temp}}c</p>
+      <p>Start fan speed: {{currentPreset.fan}}%</p>
+      <p>Start Lights: {{currentPreset.light}}%</p>
       <div style="text-align: center">
         <button mat-raised-button>Change Presets</button>
       </div>
@@ -27,7 +27,6 @@
     <mat-card class="config-card">
       <h2>Other</h2>
       <p>Darkmode: on/off</p>
-      <p>Language: Danglish</p>
       <p>About Vent2u</p>
       <p>Terms of Use</p>
     </mat-card>
