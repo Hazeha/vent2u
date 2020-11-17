@@ -1,11 +1,19 @@
 module.exports = app => {
     let router = require("express").Router();
 
-    const presets = require("../controllers/presets.controller.js");
-    const user = require("../controllers/user.controller.js");
+    const presets = require(    "../controllers/presets.controller.js");
+    const user = require(       "../controllers/user.controller.js");
+    const rooms = require(      "../controllers/rooms.controller.js");
+    const vents = require(      "../controllers/vents.controller.js");
 
-    // TODO Get user
+    // Get user
     router.get("/user/:id", user.getInfo);
+
+    // Get rooms
+    router.get("/rooms/", rooms.getAll);
+
+    // Get rooms
+    router.get("/vents/", vents.getAll);
     // TODO Create Presets.
 
     // TODO Update Presets.

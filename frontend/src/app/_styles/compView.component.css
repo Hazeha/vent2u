@@ -68,10 +68,9 @@ h2 {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
-.select-chair-group-10x2{
+.select-chair-group{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  /*grid-template-rows: 25% 100px auto;*/
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 4px;
 }
 .chair-group{
