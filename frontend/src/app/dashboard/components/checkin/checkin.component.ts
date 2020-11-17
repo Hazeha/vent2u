@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { VentService } from '../../../_services/vent.service';
+import { SeatService } from '../../../_services/seat.service';
 import { RoomService } from '../../../_services/room.service';
 import {PresetService} from '../../../_services/preset.service';
 
@@ -12,19 +12,18 @@ import {PresetService} from '../../../_services/preset.service';
 export class CheckinComponent implements OnInit {
   vents: any;
   rooms: any;
-  data: any;
   currentPresets: any;
   currentRoom = null;
-  currentSeat = null;
   currentVent = null;
   currentIndex = null;
+  private seatData: any;
 
-  constructor(private roomService: RoomService, private ventService: VentService, private presetService: PresetService) { }
+  constructor(private roomService: RoomService, private seatService: SeatService, private presetService: PresetService) { }
 
 
   ngOnInit(): void {
     this.getRooms();
-    this.getPresets(this.presetService.currentPresetID);
+    this.getPresets(1);
   }
   getPresets(id): void {
     this.presetService.getPresets(id)
@@ -44,12 +43,41 @@ export class CheckinComponent implements OnInit {
   setRoom(id) {
     this.currentRoom = id;
     console.log(this.currentRoom, 'set as current room');
-    this.getVents();
+    this.getSeats();
   }
+  // getVents() {
+  //   this.seatService.getAll(this.currentRoom)
+  //     .subscribe(
+  //       data => {
+  //         this.vents = data;
+  //         console.log(data);
+  //       },
+  //       error => {
+  //         console.log(error);
+  //       });
+  // }
+  setVent(id) {
+    this.currentVent = id;
+    console.log(this.currentVent, 'set as current seat');
+  }
+  //
+  // updatePreset(){
+  //   this.seatData = {
+  //     room: this.currentRoom,
+  //     seat: this.currentVent
+  //   };
+  //   this.presetService.putPresets(1, this.seatData)
+  //     .subscribe(
+  //       response => {
+  //         this.currentPresets.seat = this.currentVent;
+  //         this.currentPresets.room = this.currentRoom;
+  //       }
+  //     );
+  //   console.log('Seat and Room Selected');
+  // }
 
-  // This will retrieve all the vents in a selected room.
-  getVents() {
-    this.ventService.getAll(this.currentRoom)
+  getSeats() {
+    this.seatService.getAll(this.currentRoom)
       .subscribe(
         data => {
           this.vents = data;
@@ -60,30 +88,35 @@ export class CheckinComponent implements OnInit {
         });
   }
   setSeat(id) {
-    this.currentSeat = id;
-    console.log(this.currentSeat, 'set as current seat');
+    this.currentVent = id;
+    console.log(this.currentVent, 'set as current seat');
   }
 
   updatePreset(){
-    this.data = {
+    const data = {
       room: this.currentRoom,
-      seat: this.currentSeat
+      seat: this.currentVent
     };
-    this.presetService.putPresets(1, this.data)
+    this.presetService.putPresets(this.currentPresets.id, data)
       .subscribe(
         response => {
-          this.currentPresets.seat = this.currentSeat;
+          this.currentPresets.seat = this.currentVent;
           this.currentPresets.room = this.currentRoom;
         }
       );
     console.log('Seat and Room Selected');
+    // this.updateSeat();
   }
+  // updateSeat(){
+  //   const data = {
+  //     user_id: this.currentPresets.user_id
+  //   };
+  //   this.ventService.putSeat(this.currentSeat, data).subscribe( response => {
+  //     this.vents.user_id = this.currentSeat;
+  //   });
+  // }
   // This is when the checkin button is pressed.
   // There should also be some update/put function.
-  setActiveVent(vent, index) {
-    this.currentVent = vent;
-    this.currentIndex = index;
-  }
 
 
   // selectedRoomID: string;

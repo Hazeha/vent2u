@@ -1,3 +1,6 @@
+body{
+  background-image: url("./pngwing.png");
+}
 header{
   text-align: center;
 }
@@ -76,7 +79,9 @@ h2 {
 .chair-group{
 
 }
-
+.select{
+  width: 80%;
+}
 /*Test Site*/
 .btn-round {
   background-color: #d23f31;

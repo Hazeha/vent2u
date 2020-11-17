@@ -14,6 +14,7 @@ module.exports = app => {
 
     // Get rooms
     router.get("/vents/", vents.getAll);
+
     // TODO Create Presets.
 
     // TODO Update Presets.

@@ -2,39 +2,40 @@
   <header>
     <h1>Check-In</h1>
   </header>
-  <div class="temperature-view comp-view">
+  <div class="comp-view ">
 <!--    This should be updated with the number of rooms in db-->
-    <mat-form-field appearance="outline">
-      <mat-label mat-raised>Choose a Room</mat-label>
-      <mat-select matNativeControl>
-        <mat-option *ngFor="let room of rooms; index as i;" value="{{i}}" (onSelectionChange)="setRoom(i)">
-          {{room.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <mat-card class="config-card">
+      <mat-form-field appearance="outline">
+        <mat-label mat-raised>Choose a Room</mat-label>
+        <mat-select matNativeControl>
+          <mat-option *ngFor="let room of rooms; index as i;" value="{{i}}" (onSelectionChange)="setRoom(i)">
+            {{room.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>{{ currentRoom == null ? "---" : "Select Seat" }}</mat-label>
+        <mat-select matNativeControl >
+          <mat-option *ngFor="let seat of vents index as i;" (onSelectionChange)="setVent(i)" value="{{i}}">
+            <mat-icon [ngStyle]="{'color':seat.user_id !== null ? 'red' : 'green'}">chair</mat-icon>
+            {{ seat.id }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card>
 
-
-
-    <mat-form-field appearance="outline">
-      <mat-label>{{ currentRoom == null ? "Select Room" : "Select Seat" }}</mat-label>
-      <mat-select matNativeControl>
-        <mat-option *ngFor="let vent of vents; index as i;"(onSelectionChange)="setSeat(i)">
-          <mat-icon [ngStyle]="{'color':vent.user_id !== null ? 'red' : 'green' , 'border':currentSeat === i ? 'black' : 'none'}">chair</mat-icon>
-          {{ vent.id }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-divider></mat-divider>
-    <h2>Select on screen</h2>
     <mat-card class="chair-selector select-chair-group config-card">
-      <div class="chair-select" *ngFor="let chairs of vents; index as i;"(click)="setSeat(i)">
-        <mat-icon [ngStyle]="{'color':chairs.user_id !== null ? 'red' : 'green'}"
+      <div class="chair-select" *ngFor="let chairs of vents; index as i;" (click)="setVent(i)" value="{{i}}">
+        <mat-icon [ngStyle]="{
+        'color':chairs.user_id !== null ? 'red' : 'green',
+        'border':chairs.id === currentVent+1 ? '1px solid black' : 'none'
+        }"
                   class="chair-select">
           chair
         </mat-icon>
       </div>
     </mat-card>
 
-      <button mat-raised-button (click)="updatePreset();">Check In</button>
+      <button mat-raised-button (click)="updatePreset()">Check In</button>
   </div>
 </div>

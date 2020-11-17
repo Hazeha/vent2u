@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Presets} from '../_interface/preset';
 
 @Injectable({
   providedIn: 'root'
