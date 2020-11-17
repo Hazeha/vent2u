@@ -5,7 +5,7 @@
   <div class="comp-view ">
 <!--    This should be updated with the number of rooms in db-->
     <mat-card class="config-card">
-      <mat-form-field appearance="outline">
+      <mat-form-field style="width: 280px" appearance="outline">
         <mat-label mat-raised>Choose a Room</mat-label>
         <mat-select matNativeControl>
           <mat-option *ngFor="let room of rooms; index as i;" value="{{i}}" (onSelectionChange)="setRoom(i)">
@@ -13,7 +13,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-form-field appearance="outline">
+      <mat-form-field style="width: 280px" appearance="outline">
         <mat-label>{{ currentRoom == null ? "---" : "Select Seat" }}</mat-label>
         <mat-select matNativeControl >
           <mat-option *ngFor="let seat of vents index as i;" (onSelectionChange)="setVent(i)" value="{{i}}">

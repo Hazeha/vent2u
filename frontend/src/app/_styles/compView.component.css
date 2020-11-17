@@ -22,7 +22,6 @@ mat-card{
 h2 {
   text-align: center;
 }
-
 .info-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
