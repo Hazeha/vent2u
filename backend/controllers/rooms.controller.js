@@ -4,7 +4,7 @@ const Op = db.Sequelize.Op;
 
 exports.getByRoomId = (req, res) => {
     const userID = req.params.id;
-    Room.findAll({ where: { user_id: userID } })// TODO set this to selected value
+    Room.findAll({ where: { room: userID } })// TODO set this to selected value
         .then(data => {
             res.send(data);
         })
