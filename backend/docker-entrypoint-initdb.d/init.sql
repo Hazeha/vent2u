@@ -13,7 +13,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE TABLE `vents` (
+CREATE TABLE `seats` (
   `id` int NOT NULL AUTO_INCREMENT,
   `room` varchar(255) DEFAULT NULL,
   `position` varchar(255) DEFAULT NULL,
@@ -81,3 +81,37 @@ VALUES
 1,
 NOW(),
 NOW());
+
+INSERT INTO `seats`
+(
+`room`,
+`position`,
+`temp`,
+`fan`,
+`user_id`,
+`createdAt`,
+`updatedAt`)
+VALUES
+(
+"1",
+"1",
+"60",
+"1",
+"1",
+NOW(),
+NOW());
+
+INSERT INTO `db_vent2u`.`rooms`
+(
+`name`,
+`location`,
+`open`,
+`createdAt`,
+`updatedAt`)
+VALUES
+(
+"first room",
+2,
+0,
+NOW(),
+NOW())

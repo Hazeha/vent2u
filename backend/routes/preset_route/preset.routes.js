@@ -5,7 +5,7 @@ module.exports = (app) => {
   /**
    * @swagger
    * tags: 
-   *  name: User
+   *  name: Preset
    *  description: API to manage your users.
    */
   

@@ -27,7 +27,8 @@ module.exports = (sequelize, Sequelize) => {
    *         updatedAt: 
    *           type: string
    *           description: DateTime updated
-   */
+  */
+  
   const User = sequelize.define('user', {
     username: {
       type: Sequelize.STRING,
