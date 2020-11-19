@@ -1,10 +1,11 @@
 const db = require("../models");
-const Room = db.rooms;
+const Seat = db.seats;
 const Op = db.Sequelize.Op;
 
+// Retrieve all Tutorials from the database.
 exports.getByRoomId = (req, res) => {
-    const userID = req.params.id;
-    Room.findAll( { where : { user_id: userID}})// TODO set this to selected value
+    const roomID = req.params.id;
+    Seat.findAll( { where : { room: roomID}})// TODO set this to selected value
         .then(data => {
             res.send(data);
         })
@@ -17,34 +18,38 @@ exports.getByRoomId = (req, res) => {
 };
 
 // Retrieve all Tutorials from the database.
-exports.getRoom = (req, res) => {
+exports.getSeat = (req, res) => {
     const id = req.params.id;
     console.log(req)
-    Room.findByPk(id).then((data) => {
+    Seat.findByPk(id).then((data) => {
         res.send(data);
     });
 };
 
-exports.addRoom = async (req, res) => {
+exports.addSeat = async (req, res) => {
     const {
-        name,
-        location,
-        open,
+        room,
+        position,
+        temp,
+        fan,
+        user_id
     } = req.body;
-    const newRoom = Room.build({
-         name,
-         location,
-         open,
+    const newSeat = Seat.build({
+         room,
+         position,
+         temp,
+         fan,
+         user_id
     });
-    const result = await newRoom.save();
+    const result = await newSeat.save();
     res.status(201).send(result);
 };
 
-exports.removeRoom = async (req, res) => {
+exports.removeSeat = async (req, res) => {
     const {
         id
     } = req.params;
-    await Room.destroy({
+    await Seat.destroy({
         where: {
             id,
         },
@@ -55,11 +60,11 @@ exports.removeRoom = async (req, res) => {
     });
 };
 
-exports.putRoom = (req, res) => {
+exports.putSeat = (req, res) => {
     const {
         id
     } = req.params;
-    Room.update(req.body, {
+    Seat.update(req.body, {
             where: {
                 id
             },
@@ -67,17 +72,17 @@ exports.putRoom = (req, res) => {
         .then((num) => {
             if (num[0] === 1) {
                 res.send({
-                    message: 'Room was updated successfully.',
+                    message: 'Seat was updated successfully.',
                 });
             } else {
                 res.send({
-                    message: `Cannot update Room with id=${id}. Maybe Room was not found or req.body is empty!`,
+                    message: `Cannot update Seat with id=${id}. Maybe Preset was not found or req.body is empty!`,
                 });
             }
         })
         .catch(() => {
             res.status(500).send({
-                message: `Error updating Room with id=${id}`,
+                message: `Error updating Seat with id=${id}`,
             });
         });
 };

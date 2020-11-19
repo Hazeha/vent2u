@@ -23,10 +23,8 @@ export class DashboardComponent implements OnInit {
       .subscribe(
         data => {
           this.currentUser = data;
-          console.log(data);
         },
         error => {
-          console.log(error);
         });
   }
 
@@ -34,10 +32,8 @@ export class DashboardComponent implements OnInit {
   getPresets(id): void{
     this.presetService.getPresets(id).subscribe(data => {
         this.currentPreset = data;
-        console.log(data);
       },
       error => {
-        console.log(error);
       });
   }
 

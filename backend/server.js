@@ -1,12 +1,17 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const swaggerUi = require('swagger-ui-express');
+const swaggerJsdoc = require("swagger-jsdoc")
 const app = express();
+const options = require("./swagger.options.js")
+
+const specs = swaggerJsdoc(options);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs))
 app.use(cors());
 
-
-const db = require("./models/");
+const db = require('./models');
 
 db.sequelize.sync();
 
@@ -17,13 +22,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // simple route
-app.get("/", (req, res) => {
-    res.json({ message: "Backend Connected." });
+app.get('/', (req, res) => {
+  res.json({ message: 'Backend Connected.' });
 });
 
-require("./routes/user.routes.js")(app);
-// set port, listen for requests
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}.`);
-});
+require('./routes/user_route/user.routes.js')(app);
+require('./routes/preset_route/preset.routes.js')(app);
+require('./routes/seat_route/seat.routes.js')(app);
+require('./routes/room_route/room.routes.js')(app);
+
+module.exports = app;

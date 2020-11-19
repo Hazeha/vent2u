@@ -31,11 +31,9 @@ export class TemperatureComponent implements OnInit{
       .subscribe(
         response => {
           this.currentPresets.temp = newTemp;
-          console.log(response);
           this.message = 'Preset Updated';
         },
         error => {
-          console.log(error);
         });
   }
   updateFan(newFan: number): void {
@@ -47,11 +45,9 @@ export class TemperatureComponent implements OnInit{
       .subscribe(
         response => {
           this.currentPresets.fan = newFan;
-          console.log(response);
           this.message = 'Preset Updated';
         },
         error => {
-          console.log(error);
         });
   }
 

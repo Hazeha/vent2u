@@ -38,16 +38,16 @@ export class CheckinComponent implements OnInit {
       .subscribe(
         data => {
           this.rooms = data;
-          console.log(data);
         },
         error => {
-          console.log(error);
         });
   }
   setRoom(id) {
     this.currentRoom = id;
     console.log(this.currentRoom, 'set as current room');
     this.getSeats();
+
+
   }
 
   setVent(id) {
@@ -59,15 +59,14 @@ export class CheckinComponent implements OnInit {
       .subscribe(
         data => {
           this.vents = data;
-          console.log(data);
         },
         error => {
-          console.log(error);
         });
   }
   setSeat(id) {
     this.currentVent = id;
     console.log(this.currentVent, 'set as current seat');
+
   }
 
   updatePreset(){

@@ -28,11 +28,9 @@ export class LightsComponent implements OnInit {
       .subscribe(
         response => {
           this.currentPresets.light = newLight;
-          console.log(response);
           this.message = 'Preset Updated';
         },
         error => {
-          console.log(error);
         });
   }
 }
