@@ -144,7 +144,7 @@ module.exports = (app) => {
    *       200:
    *         description: Preset object
    */
-  app.put('/api/preset/:id', presets.putPreset)
+  app.put('/api/preset_specific/:id', presets.putPreset)
 };
 
 // TODO In data base create trigger for activation of vents and seats.

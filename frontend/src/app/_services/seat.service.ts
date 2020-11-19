@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class SeatService {
-  seatUrl = 'http://localhost:8080/api/vents';
+  seatUrl = 'http://localhost:8080/api/seat';
   constructor(private http: HttpClient) { }
 
   /** GET Rooms from the server */
@@ -14,7 +14,8 @@ export class SeatService {
   getAll(room) {
     return this.http.get(`${this.seatUrl}/${room}`, room);
   }
-  putVent(id, data): Observable<any> {
+
+  putSeat(id, data): Observable<any> {
     return this.http.put(`${this.seatUrl}/${id}`, data);
   }
 }

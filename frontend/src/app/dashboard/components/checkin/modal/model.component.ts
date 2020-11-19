@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PresetService} from "../../../../_services/preset.service";
 
 @Component({
   selector: 'app-login-modal',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private presetService: PresetService) { }
+  currentPresets = this.presetService;
 
   ngOnInit(): void {
   }

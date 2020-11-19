@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class RoomService {
-  roomUrl = 'http://localhost:8080/api/rooms';
+  roomUrl = 'http://localhost:8080/api/room';
   constructor(private http: HttpClient) { }
 
   /** GET Rooms from the server */

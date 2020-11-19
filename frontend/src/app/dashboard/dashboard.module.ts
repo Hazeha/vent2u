@@ -43,6 +43,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { MaterialModule } from '../_material/material.module';
 import {UserService} from "../_services/user.service";
 import {PresetService} from "../_services/preset.service";
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 
@@ -77,6 +78,7 @@ import {PresetService} from "../_services/preset.service";
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
+    MatDialogModule,
 
   ],
   exports: [

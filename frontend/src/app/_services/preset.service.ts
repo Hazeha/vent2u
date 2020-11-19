@@ -9,8 +9,11 @@ import { Presets } from '../_interface/preset';
   providedIn: 'root'
 })
 export class PresetService {
-  presetUrl = 'http://localhost:8080/api/preset';
+  presetUrl = 'http://localhost:8080/api/preset_specific';
   currentPresetID: any;
+  // TODO this need to update on updates
+  seat: 2;
+  room: 1;
   constructor(private http: HttpClient) { }
   /** GET heroes from the server */
   getPresets(id: number): Observable<Presets[]> {

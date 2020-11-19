@@ -32,6 +32,28 @@ module.exports = (app) => {
    *         description: List of rooms
    */
   app.get('/api/room/:id', rooms.getRoom);
+    /**
+     * @swagger
+     *
+     * /api/room/{room}:
+     *   get:
+     *     description: Gets a specific vent by id
+     *     produces:
+     *       - application/json
+     *     tags:
+     *       - room
+     *     parameters:
+     *       - in: path
+     *         name: room_id
+     *         description: id of the room
+     *
+     *         required: true
+     *         type: integer
+     *     responses:
+     *       200:
+     *         description: List of rooms
+     */
+  app.get('/api/room/', rooms.getRooms);
 
    /**
    * @swagger

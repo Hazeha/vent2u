@@ -15,7 +15,18 @@ exports.getByRoomId = (req, res) => {
             });
         });
 };
-
+exports.getRooms = (req, res) => {
+    Room.findAll({})// TODO set this to selected value
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials."
+            });
+        });
+};
 // Retrieve all Tutorials from the database.
 exports.getRoom = (req, res) => {
     const id = req.params.id;

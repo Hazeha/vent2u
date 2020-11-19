@@ -12,7 +12,7 @@ module.exports = (app) => {
   /**
    * @swagger
    *
-   * /api/seat_specific/{seat_id}:
+   * /api/seat/{room}:
    *   get:
    *     description: Gets a specific seat by id
    *     produces:
@@ -21,7 +21,7 @@ module.exports = (app) => {
    *       - Seat
    *     parameters:
    *       - in: path
-   *         name: seat_id
+   *         name: room
    *         description: id of the seat
    *         
    *         required: true
@@ -30,7 +30,7 @@ module.exports = (app) => {
    *       200:
    *         description: Seat object
    */
-   app.get('/api/seat_specific/:id', seats.getSeat);
+   app.get('/api/seat/:room', seats.getAll);
 
    /**
    * @swagger

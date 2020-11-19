@@ -1,25 +1,19 @@
 <div mat-dialog-title cdkFocusInitial class="dialog_heading">
-  Don't have, or forgot your login?
+  Checked In !
 </div>
 <div mat-dialog-content>
 
   <p>
-    The Vent2Learn system is administrated by your school.
+    You checked in room: {{this.currentPresets.room }} on seat {{this.currentPresets.seat}}
   </p>
 
-  <p>
-    This means that you might have to contact your Head of Academy or another authority at your school if you encounter problems, or use your school's standard log in system (this might be UMS or something else).
-  </p>
-
-  <div
-    mat-dialog-actions
-    align="end"
-  >
+  <div mat-dialog-actions align="end">
     <button
       mat-button
       mat-dialog-close
       color="primary"
       class="uppercase"
+      routerLink="Dashboard/Temperature"
     >
       OK!
     </button>

@@ -14,11 +14,11 @@ export interface DialogData {
   styleUrls: ['../../../_styles/compView.component.css']
 })
 export class CheckinComponent implements OnInit {
-  vents: any;
+  seats: any;
   rooms: any;
   currentPresets: any;
   currentRoom = null;
-  currentVent = null;
+  currentSeat = null;
   currentIndex = null;
   private seatData: any;
 
@@ -50,37 +50,39 @@ export class CheckinComponent implements OnInit {
 
   }
 
-  setVent(id) {
-    this.currentVent = id;
-    console.log(this.currentVent, 'set as current seat');
-  }
   getSeats() {
     this.seatService.getAll(this.currentRoom)
       .subscribe(
         data => {
-          this.vents = data;
+          this.seats = data;
         },
         error => {
         });
   }
   setSeat(id) {
-    this.currentVent = id;
-    console.log(this.currentVent, 'set as current seat');
+    this.currentSeat = id;
+    console.log(this.currentSeat, 'set as current seat');
 
   }
 
   updatePreset(){
     const data = {
       room: this.currentRoom,
-      seat: this.currentVent
+      seat: this.currentSeat
     };
     this.presetService.putPresets(this.currentPresets.id, data)
       .subscribe(
         response => {
-          this.currentPresets.seat = this.currentVent;
+          this.currentPresets.seat = this.currentSeat;
           this.currentPresets.room = this.currentRoom;
         }
       );
+    // this.seatService.putSeat(this.currentSeat.id, data)
+    //   .subscribe(
+    //   response => {
+    //     this.currentSeat.user_id = this.currentPresets.user_id;
+    //   }
+    // );
     console.log('Seat and Room Selected');
     this.openDialog();
     // this.updateSeat();
