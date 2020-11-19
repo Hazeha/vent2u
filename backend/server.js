@@ -28,5 +28,7 @@ app.get('/', (req, res) => {
 
 require('./routes/user_route/user.routes.js')(app);
 require('./routes/preset_route/preset.routes.js')(app);
+require('./routes/seat_route/seat.routes.js')(app);
+require('./routes/room_route/room.routes.js')(app);
 
 module.exports = app;
