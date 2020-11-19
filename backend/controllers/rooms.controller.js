@@ -4,7 +4,21 @@ const Op = db.Sequelize.Op;
 
 exports.getByRoomId = (req, res) => {
     const userID = req.params.id;
-    Room.findAll( { where : { user_id: userID}})// TODO set this to selected value
+    Room.findAll({ where: { user_id: userID } })// TODO set this to selected value
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving tutorials."
+            });
+        });
+};
+
+exports.getRooms = (req, res) => {
+    const userID = req.params.id;
+    Room.findAll({})// TODO set this to selected value
         .then(data => {
             res.send(data);
         })
