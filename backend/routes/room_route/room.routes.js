@@ -13,7 +13,7 @@ module.exports = (app) => {
   /**
    * @swagger
    *
-   * /room/{room_id}:
+   * /api/room/{room_id}:
    *   get:
    *     description: Gets a specific vent by id
    *     produces:
@@ -31,12 +31,12 @@ module.exports = (app) => {
    *       200:
    *         description: List of rooms
    */
-  app.get('/room/:id', rooms.getRoom);
+  app.get('/api/room/:id', rooms.getRoom);
 
    /**
    * @swagger
    *
-   * /room/:
+   * /api/room/:
    *   post:
    *     description: Adds the room
    *     produces:
@@ -59,12 +59,12 @@ module.exports = (app) => {
    *       200:
    *         description: room object
    */
-  app.post('/room/', rooms.addRoom);
+  app.post('/api/room/', rooms.addRoom);
 
   /**
    * @swagger
    *
-   * /room/{room_id}:
+   * /api/room/{room_id}:
    *   delete:
    *     description: Deletes a specific room
    *     produces:
@@ -82,12 +82,12 @@ module.exports = (app) => {
    *       200:
    *         description: id of the deleted room
    */
-   app.delete('/room/:id', rooms.removeRoom);
+   app.delete('/api/room/:id', rooms.removeRoom);
 
   /**
    * @swagger
    *
-   * /room/{room_id}:
+   * /api/room/{room_id}:
    *   put:
    *     description: Edit the room
    *     produces:
@@ -114,7 +114,7 @@ module.exports = (app) => {
    *       200:
    *         description: room object
    */
-  app.put('/room/:id', rooms.putRoom)
+  app.put('/api/room/:id', rooms.putRoom)
 };
 
 // TODO In data base create trigger for activation of vents and rooms.

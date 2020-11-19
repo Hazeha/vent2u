@@ -19,7 +19,6 @@ exports.getByRoomId = (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.getRoom = (req, res) => {
     const id = req.params.id;
-    console.log(req)
     Room.findByPk(id).then((data) => {
         res.send(data);
     });

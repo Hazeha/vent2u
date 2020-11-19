@@ -12,7 +12,7 @@ module.exports = (app) => {
   /**
    * @swagger
    *
-   * /seat_specific/{seat_id}:
+   * /api/seat_specific/{seat_id}:
    *   get:
    *     description: Gets a specific seat by id
    *     produces:
@@ -30,12 +30,12 @@ module.exports = (app) => {
    *       200:
    *         description: Seat object
    */
-   app.get('/seat_specific/:id', seats.getSeat);
+   app.get('/api/seat_specific/:id', seats.getSeat);
 
    /**
    * @swagger
    *
-   * /seat/:
+   * /api/seat/:
    *   post:
    *     description: Adds the seat
    *     produces:
@@ -62,12 +62,12 @@ module.exports = (app) => {
    *       200:
    *         description: Preset object
    */
-   app.post('/seat/', seats.addSeat);
+   app.post('/api/seat/', seats.addSeat);
 
   /**
    * @swagger
    *
-   * /seat/{seat_id}:
+   * /api/seat/{seat_id}:
    *   delete:
    *     description: Deletes a specific seat
    *     produces:
@@ -85,12 +85,12 @@ module.exports = (app) => {
    *       200:
    *         description: id of the deleted seat
    */
-   app.delete('/seat/:id', seats.removeSeat);
+   app.delete('/api/seat/:id', seats.removeSeat);
 
   /**
    * @swagger
    *
-   * /seat/{seat_id}:
+   * /api/seat/{seat_id}:
    *   put:
    *     description: Edit the Preset
    *     produces:
@@ -121,7 +121,7 @@ module.exports = (app) => {
    *       200:
    *         description: Preset object
    */
-  app.put('/seat/:id', seats.putSeat)
+  app.put('/api/seat/:id', seats.putSeat)
 };
 
 // TODO In data base create trigger for activation of vents and seats.
