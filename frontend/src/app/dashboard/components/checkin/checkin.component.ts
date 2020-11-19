@@ -3,6 +3,7 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { SeatService } from '../../../_services/seat.service';
 import { RoomService } from '../../../_services/room.service';
 import {PresetService} from '../../../_services/preset.service';
+import { LoginModalComponent } from "./modal/model.component";
 
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';
@@ -82,7 +83,11 @@ export class CheckinComponent implements OnInit {
         }
       );
     console.log('Seat and Room Selected');
+    this.openDialog();
     // this.updateSeat();
+  }
+  openDialog() {
+    this.dialog.open(LoginModalComponent);
   }
   // updateSeat(){
   //   const data = {
@@ -102,12 +107,4 @@ export class CheckinComponent implements OnInit {
   //
   // resultRoom: [];
 
-}
-
-@Component({
-    selector: 'dialog-data-example-dialog',
-    template: `<div style="width: 40%">Det Bra</div>`
-  })
-  export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 }

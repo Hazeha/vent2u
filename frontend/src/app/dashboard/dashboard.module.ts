@@ -20,6 +20,8 @@ import { CheckinComponent } from './components/checkin/checkin.component';
 import { LightsComponent } from './components/lights/lights.component';
 import { SettingsComponent } from './components/settings/settings.component';
 
+import{ LoginModalComponent } from "./components/checkin/modal/model.component";
+
 
 import { OTempComponent } from './components/temperature/OutsideTemp/otemp.component';
 import { OTempModule } from './components/temperature/OutsideTemp/otemp.module';
@@ -55,7 +57,7 @@ import {PresetService} from "../_services/preset.service";
     TemperatureComponent,
     LightsComponent,
     SettingsComponent,
-
+    LoginModalComponent,
     OTempComponent,
     CelsiusPipe,
 
