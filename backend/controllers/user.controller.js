@@ -35,7 +35,7 @@ exports.addUser = async (req, res) => {
     password,
   });
   const result = await newUser.save();
-  res.status(201).send(result.dataValues);
+  res.status(201).send(result);
 };
 
 exports.removeUser = async (req, res) => {
