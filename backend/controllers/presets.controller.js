@@ -3,6 +3,34 @@ const db = require('../models');
 
 const Preset = db.presets;
 
+// Get all Presets with user_id like user_id
+exports.getInfo = (req, res) => {
+  // TODO This Should be remade. so that logged in user id is user_id
+  const {
+    user_id
+  } = req.params;
+  Preset.findAll({
+    where: {
+      user_id
+    }
+  }).then((data) => {
+    const values = data.map((dbPreset) => dbPreset.dataValues);
+    res.send(values);
+  }).catch((err) => {
+    res.status(500).send({
+      message: err.message || 'Some error occurred while getting Presets!',
+    });
+  });
+};
+
+// Get specific preset by id
+exports.getPreset = (req, res) => {
+  const id = req.params.preset_id;
+  Preset.findByPk(id).then((data) => {
+    res.send(data);
+  });
+};
+
 // Create and Send a new Preset TODO Should we have a create or should it be autoconfig?
 exports.addPreset = (req, res) => {
     
@@ -19,26 +47,21 @@ exports.addPreset = (req, res) => {
     });
 };
 
-// Get all Presets with user_id like user_id
-exports.getInfo = (req, res) => {
-  // TODO This Should be remade. so that logged in user id is user_id
-  const { user_id } = req.params;
-  Preset.findAll({ where: { user_id } }).then((data) => {
-    const values = data.map((dbPreset) => dbPreset.dataValues);
-    res.send(values);
-  }).catch((err) => {
-    res.status(500).send({
-      message: err.message || 'Some error occurred while getting Presets!',
-    });
+exports.removePreset = async (req, res) => {
+  const {
+    id
+  } = req.params;
+  await Preset.destroy({
+    where: {
+      id,
+    },
+  });
+
+  res.status(200).send({
+    id
   });
 };
-// Get specific preset by id
-exports.getPreset = (req, res) => {
-  const id = req.params.user_id;
-  Preset.findByPk(id).then((data) => {
-    res.send(data);
-  });
-};
+
 
 exports.putPreset = (req, res) => {
   const { id } = req.params;
@@ -46,7 +69,7 @@ exports.putPreset = (req, res) => {
     where: { id },
   })
     .then((num) => {
-      if (num === 1) {
+      if (num[0] === 1) {
         res.send({
           message: 'Presets was updated successfully.',
         });
@@ -62,6 +85,7 @@ exports.putPreset = (req, res) => {
       });
     });
 };
+/* garbage?
 exports.listAllSeatsInRoom = (req, res) => {
   Preset.findAll({ where: { id: 1 } })
     .then((data) => {
@@ -75,13 +99,4 @@ exports.listAllSeatsInRoom = (req, res) => {
     });
 };
 
-exports.removePreset = async (req, res) => {
-  const { id } = req.params;
-  await Preset.destroy({
-    where: {
-      id,
-    },
-  });
-
-  res.status(200).send({ id });
-};
+*/
