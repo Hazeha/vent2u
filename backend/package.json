@@ -4,7 +4,10 @@
   "description": "Backend Program for Ventu2 project. This program is the middle-man between Front-end and Api.",
   "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "start": "node app.js",
+    "lint:fix": "eslint --fix",
+    "test": "jest  --watchAll --verbose --runInBand",
+    "test:coverage": "jest  --coverage"
   },
   "keywords": [],
   "author": "Nikolaj Drejer",
@@ -17,7 +20,11 @@
     "sequelize": "^5.22.3"
   },
   "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
     "jest": "^26.6.3",
-    "supertest": "^6.0.1"
+    "supertest": "^6.0.1",
+    "swagger-ui-express": "^4.1.4"
   }
 }

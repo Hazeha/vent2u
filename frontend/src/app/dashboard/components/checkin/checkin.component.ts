@@ -35,15 +35,12 @@ export class CheckinComponent implements OnInit {
       .subscribe(
         data => {
           this.rooms = data;
-          console.log(data);
         },
         error => {
-          console.log(error);
         });
   }
   setRoom(id) {
     this.currentRoom = id;
-    console.log(this.currentRoom, 'set as current room');
     this.getVents();
   }
 
@@ -53,15 +50,12 @@ export class CheckinComponent implements OnInit {
       .subscribe(
         data => {
           this.vents = data;
-          console.log(data);
         },
         error => {
-          console.log(error);
         });
   }
   setSeat(id) {
     this.currentSeat = id;
-    console.log(this.currentSeat, 'set as current seat');
   }
 
   updatePreset(){
@@ -76,7 +70,6 @@ export class CheckinComponent implements OnInit {
           this.currentPresets.room = this.currentRoom;
         }
       );
-    console.log('Seat and Room Selected');
   }
   // This is when the checkin button is pressed.
   // There should also be some update/put function.
