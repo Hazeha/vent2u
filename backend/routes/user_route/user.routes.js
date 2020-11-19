@@ -14,7 +14,7 @@ module.exports = (app) => {
   /**
    * @swagger
    *
-   * /user/{id}:
+   * /api/user/{id}:
    *   get:
    *     description: Gets the user
    *     produces:
@@ -32,12 +32,12 @@ module.exports = (app) => {
    *       200:
    *         description: User object
    */
-  app.get('/user/:id', user.getInfo);
+  app.get('/api/user/:id', user.getInfo);
 
   /**
    * @swagger
    *
-   * /user/:
+   * /api/user/:
    *   post:
    *     description: Gets the user
    *     produces:
@@ -62,12 +62,12 @@ module.exports = (app) => {
    *       200:
    *         description: User object
    */
-  app.post('/user/', user.addUser);
+  app.post('/api/user/', user.addUser);
 
   /**
   * @swagger
   *
-  * /user/{id}:
+  * /api/user/{id}:
   *   delete:
   *     description: Deletes user
   *     produces:
@@ -84,7 +84,7 @@ module.exports = (app) => {
   *       200:
   *         description: User object
   */
-  app.delete('/user/:id', user.removeUser);
+  app.delete('/api/user/:id', user.removeUser);
 };
 
 // TODO In data base create trigger for activation of vents and seats.

@@ -12,7 +12,7 @@ module.exports = (app) => {
   /**
    * @swagger
    *
-   * /preset/{user_id}:
+   * /api/preset/{user_id}:
    *   get:
    *     description: Gets presets for a specific user
    *     produces:
@@ -30,12 +30,12 @@ module.exports = (app) => {
    *       200:
    *         description: List of Presets
    */
-  app.get('/preset/:user_id', presets.getInfo);
+  app.get('/api/preset/:user_id', presets.getInfo);
 
   /**
    * @swagger
    *
-   * /preset_specific/{preset_id}:
+   * /api/preset_specific/{preset_id}:
    *   get:
    *     description: Gets a specific vent by id
    *     produces:
@@ -53,12 +53,12 @@ module.exports = (app) => {
    *       200:
    *         description: List of Presets
    */
-  app.get('/preset_specific/:preset_id', presets.getPreset);
+  app.get('/api/preset_specific/:preset_id', presets.getPreset);
 
    /**
    * @swagger
    *
-   * /preset/:
+   * /api/preset/:
    *   post:
    *     description: Adds the Preset
    *     produces:
@@ -85,12 +85,12 @@ module.exports = (app) => {
    *       200:
    *         description: Preset object
    */
-  app.post('/preset/', presets.addPreset);
+  app.post('/api/preset/', presets.addPreset);
 
   /**
    * @swagger
    *
-   * /preset/{preset_id}:
+   * /api/preset/{preset_id}:
    *   delete:
    *     description: Deletes a specific preset
    *     produces:
@@ -108,12 +108,12 @@ module.exports = (app) => {
    *       200:
    *         description: id of the deleted preset
    */
-  app.delete('/preset/:id', presets.removePreset);
+  app.delete('/api/preset/:id', presets.removePreset);
 
   /**
    * @swagger
    *
-   * /preset/{preset_id}:
+   * /api/preset/{preset_id}:
    *   put:
    *     description: Edit the Preset
    *     produces:
@@ -144,7 +144,7 @@ module.exports = (app) => {
    *       200:
    *         description: Preset object
    */
-  app.put('/preset/:id', presets.putPreset)
+  app.put('/api/preset/:id', presets.putPreset)
 };
 
 // TODO In data base create trigger for activation of vents and seats.
