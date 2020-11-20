@@ -22,30 +22,29 @@ export interface PresetData {
 export class DialogDataComponent {
   currentUser: any;
   username: any;
-  nameFormControl: any;
-  emailFormControl: any;
   userFormControl: any;
+  fnameFormControl: any;
+  lnameFormControl: any;
   matcher: any;
   message: any;
   newData: any;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private userService: UserService,
-    private settingsComponent: SettingsComponent
+    private userService: UserService
   ) {}
 
   saveSettings() {
     this.newData = {
       username: this.userFormControl,
-      first_name: this.nameFormControl,
-      email: this.emailFormControl
+      first_name: this.fnameFormControl,
+      last_name: this.lnameFormControl
     };
-    this.userService.putSettings(this.settingsComponent, this.newData)
+    this.userService.putSettings(this.data.id, this.newData)
       .subscribe(
         response => {
-          this.currentUser.username = this.nameFormControl;
-          this.currentUser.first_name = this.userFormControl;
-          this.currentUser.email = this.emailFormControl;
+          this.currentUser.username = this.userFormControl;
+          this.currentUser.first_name = this.fnameFormControl;
+          this.currentUser.last_name = this.lnameFormControl;
           this.message = 'Preset Updated';
         },
         error => {

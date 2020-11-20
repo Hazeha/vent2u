@@ -4,31 +4,30 @@
 <div mat-dialog-content>
 
   <form class="example-form">
-    <span>Name : </span>
+    <span>Username : </span>
     <mat-form-field class="example-full-width">
-      <mat-label>Name</mat-label>
-      <input type="name" matInput [formControl]="nameFormControl"
-             placeholder="{{data.user}}" apperence="outline" #name>
-    </mat-form-field>
-
-
-    <span>user : </span>
-    <mat-form-field class="example-full-width">
-      <mat-label>username</mat-label>
-      <input type="username" matInput [formControl]="userFormControl"
-             placeholder="" apperence="outline" #user>
-    </mat-form-field>
-
-    <span>Email : </span>
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input type="Email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-             placeholder="" apperence="outline" #email>
+      <mat-label>{{data.username}}</mat-label>
+      <input type="text" matInput [formControl]="userFormControl"
+             placeholder="{{data.username}}" apperence="outline" #username>
     </mat-form-field>
     <br>
-    <span>{{name}} : name</span>
-    <span>{{user}} : username</span>
-    <span>{{email}} : Email</span>
+    <span>First Name : </span>
+    <mat-form-field class="example-full-width">
+      <mat-label>{{data.firstname}}</mat-label>
+      <input type="text" matInput [formControl]="fnameFormControl"
+             placeholder="{{data.firstname}}" apperence="outline" #first_name>
+    </mat-form-field>
+    <br>
+    <span>Last Name : </span>
+    <mat-form-field class="example-full-width">
+      <mat-label>{{data.lastname}}</mat-label>
+      <input type="text" matInput [formControl]="lnameFormControl" [errorStateMatcher]="matcher"
+             placeholder="{{data.lastname}}" apperence="outline" #last_name name="lastname">
+    </mat-form-field>
+    <br>
+<!--    <span>Username: {{data.username}} -> {{username.value}} </span> <br>-->
+<!--    <span>First Name: {{data.firstname}} ->  {{first_name.value}}</span>  <br>-->
+<!--    <span>Last Name: {{data.lastname}} -> {{last_name.value}}</span> <br>-->
     <button mat-raised-button (click)="saveSettings();">Submit</button>
   </form>
 

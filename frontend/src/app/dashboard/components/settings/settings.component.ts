@@ -51,7 +51,10 @@ export class SettingsComponent implements OnInit {
 
     this.dialog.open(DialogDataComponent, {
       data: {
-        username: 'usernames'
+        id: this.currentUser.id,
+        username: this.currentUser.username,
+        firstname: this.currentUser.first_name,
+        lastname: this.currentUser.last_name
       }
     });
   }
@@ -62,7 +65,9 @@ export class SettingsComponent implements OnInit {
   preDialog(): void {
     this.dialog.open(DialogPresetComponent, {
       data: {
-        username: 'usernames'
+        temp: this.currentPreset.temp,
+        fan: this.currentPreset.fan,
+        light: this.currentPreset.light
       }
     });
   }
