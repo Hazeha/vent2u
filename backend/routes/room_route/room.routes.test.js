@@ -4,42 +4,36 @@
 const request = require('supertest');
 const app = require('../../server');
 
-describe('preset route', () => {
-  it('should get a preset by user id', async (done) => {
+describe('room route', () => {
+  it('should get a room by id', async (done) => {
     await request(app)
-      .get('/preset/1')
+      .get('/api/room/1')
       .then((response) => {
         const {
           id,
-          temp,
-          fan,
-          light,
-          seat,
-          user_id,
-        } = response.body[0];
+          name,
+          location,
+          open
+        } = response.body;
         expect([
           id,
-          temp,
-          fan,
-          light,
-          seat,
-          user_id])
+          name,
+          location,
+          open])
           .toEqual([
             1,
-            1,
-            1,
-            1,
-            1,
-            1,
+            'first room',
+            2,
+            false
           ]);
         done();
       });
   });
 
-  it('should add a preset', async (done) => {
+  it('should add a room', async (done) => {
     await request(app)
       .post(
-        '/preset/',
+        '/api/room/',
       )
       .send(
         {
@@ -54,16 +48,16 @@ describe('preset route', () => {
         expect(
           response.status,
         ).toEqual(
-          200,
+          201,
         );
         done();
       });
   });
 
-  it('should remove a preset', async (done) => {
+  it('should remove a room', async (done) => {
     await request(app)
       .post(
-        '/preset/',
+        '/api/room/',
       )
       .send(
         {
@@ -77,7 +71,7 @@ describe('preset route', () => {
       .then((response) => {
         const { id } = response.body;
         request(app)
-          .delete(`/preset/${id}`)
+          .delete(`/api/room/${id}`)
           .then((response) => {
             expect([response.status, response.body.id])
               .toEqual([200, id.toString()]);
@@ -85,7 +79,7 @@ describe('preset route', () => {
           });
       });
   });
-
+/*
   it('should get a preset by preset id', async (done) => { 
         await request(app)
           .get('/preset_specific/1')
@@ -116,12 +110,12 @@ describe('preset route', () => {
               ]);
             done();
           });
-  })
+  })*/
 
-  it('should remove a preset', async (done) => {
+  it('should update a preset', async (done) => {
       await request(app)
         .post(
-          '/preset/',
+          '/api/preset/',
         )
         .send({
           temp: 1,
@@ -135,7 +129,7 @@ describe('preset route', () => {
             id
           } = response.body;
           request(app)
-            .put(`/preset/${id}`)
+            .put(`/api/preset/${id}`)
             .send({
                temp: 2,
                  fan: 3,

@@ -11,7 +11,8 @@ p{
 mat-toolbar {
     justify-content: space-between;
     width: 100%;
-    background-color: #222;
+    background-color: rgba(120,160,180, 0.9);
+
     color: white;
     padding: 20px 25px;
     text-align: left;

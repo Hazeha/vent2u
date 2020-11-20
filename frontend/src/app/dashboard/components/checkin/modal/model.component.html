@@ -1,0 +1,21 @@
+<div cdkFocusInitial mat-dialog-title class="dialog_heading">
+  Checked In !
+</div>
+<div mat-dialog-content>
+
+  <p>
+    You checked in room: {{data.selectedRoom}} on seat {{data.selectedSeat}}
+  </p>
+
+  <div mat-dialog-actions align="end">
+    <button
+      mat-button
+      mat-dialog-close
+      color="primary"
+      class="uppercase"
+      routerLink="Dashboard/Temperature"
+    >
+      OK!
+    </button>
+  </div>
+</div>

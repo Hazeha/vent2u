@@ -1,6 +1,14 @@
 <nav>
     <ul>
-      <li routerLink="CheckIn"><span> <mat-icon>people</mat-icon> </span>Check In</li>
+      <li routerLink="CheckIn" [ngSwitch]="currentPreset.seat">
+        <div *ngSwitchCase="null">
+          <span ><mat-icon>people</mat-icon> </span> Check In
+        </div>
+        <div *ngSwitchDefault>
+          <span ><mat-icon>people</mat-icon> </span><!-- Room: {{currentPreset.room || 0}} -->  Seat: {{currentPreset.seat}}
+        </div>
+
+      </li>
       <li routerLink="Temperature"><span *ngIf="currentPreset">{{ currentPreset.temp | celsius }}</span> Ventilation</li>
       <li routerLink="Lights" [ngSwitch]="currentPreset.light">
         <span *ngSwitchCase="0">0%</span>

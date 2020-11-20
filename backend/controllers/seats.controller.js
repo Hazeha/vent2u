@@ -3,9 +3,9 @@ const Seat = db.seats;
 const Op = db.Sequelize.Op;
 
 // Retrieve all Tutorials from the database.
-exports.getByRoomId = (req, res) => {
-    const roomID = req.params.id;
-    Seat.findAll( { where : { room: roomID}})// TODO set this to selected value
+exports.getAll = (req, res) => {
+    const room = req.params.room;
+    Seat.findAll( { where : { room: room }})// TODO set this to selected value
         .then(data => {
             res.send(data);
         })
@@ -20,7 +20,6 @@ exports.getByRoomId = (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.getSeat = (req, res) => {
     const id = req.params.id;
-    console.log(req)
     Seat.findByPk(id).then((data) => {
         res.send(data);
     });

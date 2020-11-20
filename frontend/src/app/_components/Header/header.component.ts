@@ -21,8 +21,4 @@ export class HeaderComponent {
 
   constructor(public dialog: MatDialog) {
   }
-  // // TODO this function should be used on logout later on.
-  // Logout(): void {
-  //   this.dialog.open(LogoutComponent);
-  // }
 }

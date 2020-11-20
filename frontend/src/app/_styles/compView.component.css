@@ -1,3 +1,6 @@
+body{
+  background-image: url("./pngwing.png");
+}
 header{
   text-align: center;
 }
@@ -19,7 +22,6 @@ mat-card{
 h2 {
   text-align: center;
 }
-
 .info-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -52,7 +54,10 @@ h2 {
 }
 .config-card{
   height: auto;
-
+  background-color: rgba(0,0,0, 0);
+}
+.mat-slider-track-fill, .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label {
+  background-color: blue !important;
 }
 .select-chair-group-row{
 
@@ -76,7 +81,9 @@ h2 {
 .chair-group{
 
 }
-
+.select{
+  width: 80%;
+}
 /*Test Site*/
 .btn-round {
   background-color: #d23f31;
@@ -102,7 +109,7 @@ h2 {
   color: #FFF;
 }
 .config-card {
-  background-color: rgb(240, 245, 245);
+  background-color: none;
 }
 
 .centered {

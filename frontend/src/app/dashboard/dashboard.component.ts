@@ -4,14 +4,24 @@ import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html'
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   constructor(private userService: UserService, private presetService: PresetService) {
   }
   private message: string;
   currentUser = null;
-  currentPreset: any;
+  currentPreset: any = {
+    createdAt: '2020-11-20T08:55:05.000Z',
+    fan: 100,
+    id: 1,
+    light: 1,
+    seat: 1,
+    temp: 1,
+    updatedAt: '2020-11-20T08:55:05.000Z',
+    user_id: 1
+  };
 
   // This is for testing
   testUserId = 1;
