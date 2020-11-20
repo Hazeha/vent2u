@@ -19,6 +19,7 @@ CREATE TABLE `seats` (
   `position` varchar(255) DEFAULT NULL,
   `temp` varchar(255) DEFAULT NULL,
   `fan` varchar(255) DEFAULT NULL,
+  `light` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL,
   `createdAt` datetime NOT NULL,
   `updatedAt` datetime NOT NULL,
@@ -88,6 +89,7 @@ INSERT INTO `seats`
 `position`,
 `temp`,
 `fan`,
+`light`,
 `user_id`,
 `createdAt`,
 `updatedAt`)
@@ -96,6 +98,7 @@ VALUES
 "1",
 "1",
 "60",
+"1",
 "1",
 "1",
 NOW(),

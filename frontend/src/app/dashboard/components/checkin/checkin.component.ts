@@ -1,30 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { VentService } from '../../../_services/vent.service';
+import { Component, OnInit, Inject} from '@angular/core';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { SeatService } from '../../../_services/seat.service';
 import { RoomService } from '../../../_services/room.service';
 import {PresetService} from '../../../_services/preset.service';
+import { LoginModalComponent } from './modal/model.component';
 
-
+export interface DialogData {
+}
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html',
   styleUrls: ['../../../_styles/compView.component.css']
 })
 export class CheckinComponent implements OnInit {
-  vents: any;
+  seats: any;
   rooms: any;
-  data: any;
   currentPresets: any;
   currentRoom = null;
   currentSeat = null;
-  currentVent = null;
-  currentIndex = null;
 
-  constructor(private roomService: RoomService, private ventService: VentService, private presetService: PresetService) { }
+  constructor(private roomService: RoomService,
+              private seatService: SeatService,
+              private presetService: PresetService,
+              public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
     this.getRooms();
-    this.getPresets(this.presetService.currentPresetID);
+    this.getPresets(1);
   }
   getPresets(id): void {
     this.presetService.getPresets(id)
@@ -41,48 +44,58 @@ export class CheckinComponent implements OnInit {
   }
   setRoom(id) {
     this.currentRoom = id;
-    this.getVents();
+    console.log(this.currentRoom, 'set as current room');
+    this.getSeats();
+
+
   }
 
-  // This will retrieve all the vents in a selected room.
-  getVents() {
-    this.ventService.getAll(this.currentRoom)
+  getSeats() {
+    this.seatService.getAll(this.currentRoom)
       .subscribe(
         data => {
-          this.vents = data;
+          this.seats = data;
         },
         error => {
         });
   }
   setSeat(id) {
     this.currentSeat = id;
+    console.log(this.currentSeat, 'set as current seat');
+
   }
 
   updatePreset(){
-    this.data = {
+    const data = {
       room: this.currentRoom,
       seat: this.currentSeat
     };
-    this.presetService.putPresets(1, this.data)
+    this.presetService.putPresets(this.currentPresets.id, data)
       .subscribe(
         response => {
           this.currentPresets.seat = this.currentSeat;
           this.currentPresets.room = this.currentRoom;
         }
       );
+    console.log('Seat and Room Selected');
+    this.openDialog();
+    this.updateSeat();
   }
-  // This is when the checkin button is pressed.
-  // There should also be some update/put function.
-  setActiveVent(vent, index) {
-    this.currentVent = vent;
-    this.currentIndex = index;
+  openDialog() {
+    this.dialog.open(LoginModalComponent, {
+      data: {
+        selectedSeat: this.currentSeat,
+        selectedRoom: this.currentRoom
+      }
+    });
   }
-
-
-  // selectedRoomID: string;
-  // selectedSeatID: string;
-  // chairGroup: string;
-  //
-  // resultRoom: [];
-
+  updateSeat(){
+    const data = {
+      user_id: this.currentPresets.user_id
+    };
+    this.seatService.putSeat(this.currentSeat, data).subscribe( response => {
+      this.seats.user_id = this.currentSeat;
+      console.log(data);
+    });
+  }
 }

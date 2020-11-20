@@ -37,9 +37,9 @@ module.exports = (app) => {
   /**
    * @swagger
    *
-   * /api/user/:
+   * /api/user/{id}:
    *   post:
-   *     description: Gets the user
+   *     description: Adds a user
    *     produces:
    *       - application/json
    *     tags:
@@ -63,6 +63,40 @@ module.exports = (app) => {
    *         description: User object
    */
   app.post('/api/user/', user.addUser);
+
+  /**
+   * @swagger
+   *
+   * /api/user/{id}:
+   *   put:
+   *     description: Updates the user
+   *     produces:
+   *       - application/json
+   *     tags:
+   *       - User
+   *     parameters:
+   *       - in: path
+   *         name: id
+   *         description: Users id
+   *     requestBody:
+   *       content:
+   *         application/json:  
+   *           schema:
+   *             type: object
+   *             properties:
+   *               first_name:
+   *                 type: string
+   *               last_name:
+   *                 type: string
+   *               username:
+   *                 type: string
+   *               password:
+   *                 type: string
+   *     responses:
+   *       200:
+   *         description: User object
+   */
+  app.put('/api/user/:id', user.putUser);
 
   /**
   * @swagger

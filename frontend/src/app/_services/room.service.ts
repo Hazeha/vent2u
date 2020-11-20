@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {Presets} from '../_interface/preset';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RoomService {
-  roomUrl = 'http://localhost:8080/api/rooms';
+  roomUrl = 'http://localhost:8080/api/room';
   constructor(private http: HttpClient) { }
 
   /** GET Rooms from the server */

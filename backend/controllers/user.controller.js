@@ -48,3 +48,30 @@ exports.removeUser = async (req, res) => {
 
   res.status(200).send({ id });
 };
+
+exports.putUser = (req, res) => {
+  const {
+      id
+  } = req.params;
+  User.update(req.body, {
+          where: {
+              id
+          },
+      })
+      .then((num) => {
+          if (num[0] === 1) {
+              res.send({
+                  message: 'User was updated successfully.',
+              });
+          } else {
+              res.send({
+                  message: `Cannot update User with id=${id}. Maybe User was not found or req.body is empty!`,
+              });
+          }
+      })
+      .catch((e) => {
+          res.status(500).send({
+              message: `Error updating Seat with id=${id}`,
+          });
+      });
+};
