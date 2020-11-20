@@ -33,36 +33,37 @@ module.exports = (app) => {
    app.get('/api/seat/:room', seats.getAll);
 
    /**
-   * @swagger
-   *
-   * /api/seat/:
-   *   post:
-   *     description: Adds the seat
-   *     produces:
-   *       - application/json
-   *     tags:
-   *       - Seat
-   *     requestBody:
-   *       content:
-   *         application/json:  
-   *           schema:
-   *             type: object
-   *             properties:
-   *               room:
-   *                 type: string
-   *               position:
-   *                 type: string
-   *               temp:
-   *                 type: string
-   *               fan:
-   *                 type: string
-   *               user_id:
-   *                 type: string
-   *     responses:
-   *       200:
-   *         description: Preset object
-   */
-   app.post('/api/seat/', seats.addSeat);
+    * @swagger
+    *
+    * /api/seat/:
+    *   post:
+    *     description: Adds the seat
+    *     produces:
+    *       - application/json
+    *     tags:
+    *       - Seat
+    *     requestBody:
+    *       content:
+    *         application/json:  
+    *           schema:
+    *             type: object
+    *             properties:
+    *               room:
+    *                 type: string
+    *               position:
+    *                 type: string
+    *               temp:
+    *                 type: string
+    *               fan:
+    *                 type: string
+    *               user_id:
+    *                 type: string
+    *     responses:
+    *       200:
+    *         description: Preset object
+    */
+  app.post('/api/seat/', seats.addSeat);
+  
 
   /**
    * @swagger

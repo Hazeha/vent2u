@@ -7,7 +7,7 @@ const app = require('../../server');
 describe('user route', () => {
   it('should get a user', async (done) => {
     await request(app)
-      .get('/user/1')
+      .get('/api/user/1')
       .then((response) => {
         const {
           id, first_name, last_name, password,
@@ -26,7 +26,7 @@ describe('user route', () => {
   it('should add a user', async (done) => {
     await request(app)
       .post(
-        '/user/',
+        '/api/user/',
       )
       .send(
         {
@@ -64,7 +64,7 @@ describe('user route', () => {
   it('should remove a user', async (done) => {
     await request(app)
       .post(
-        '/user/',
+        '/api/user/',
       )
       .send(
         {
@@ -78,7 +78,7 @@ describe('user route', () => {
       .then((response) => {
         const { id } = response.body;
         request(app)
-          .delete(`/user/${id}`)
+          .delete(`/api/user/${id}`)
           .then((response) => {
             expect([response.status, response.body.id])
               .toEqual([200, id.toString()]);

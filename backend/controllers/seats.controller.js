@@ -20,7 +20,6 @@ exports.getAll = (req, res) => {
 // Retrieve all Tutorials from the database.
 exports.getSeat = (req, res) => {
     const id = req.params.id;
-    console.log(req)
     Seat.findByPk(id).then((data) => {
         res.send(data);
     });
