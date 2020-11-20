@@ -60,32 +60,6 @@ describe('preset route', () => {
       });
   });
 
-  it('should remove a preset', async (done) => {
-    await request(app)
-      .post(
-        '/api/preset/',
-      )
-      .send(
-        {
-          temp: 1,
-          fan: 1,
-          light: 1,
-          seat: 1,
-          user_id: 1,
-        }
-      )
-      .then((response) => {
-        const { id } = response.body;
-        request(app)
-          .delete(`/api/preset/${id}`)
-          .then((response) => {
-            expect([response.status, response.body.id])
-              .toEqual([200, id.toString()]);
-            done();
-          });
-      });
-  });
-
   it('should get a preset by preset id', async (done) => { 
         await request(app)
           .get('/api/preset_specific/1')

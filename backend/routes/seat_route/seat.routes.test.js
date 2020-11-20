@@ -7,7 +7,7 @@ const app = require('../../server');
 describe('seat route', () => {
   it('should get a seat by id', async (done) => {
     await request(app)
-      .get('/api/seat_specific/1')
+      .get('/api/seat/1')
       .then((response) => {
         const {
           id,
@@ -16,7 +16,7 @@ describe('seat route', () => {
           temp,
           fan,
           user_id,
-        } = response.body;
+        } = response.body[0];
         expect([
           id,
           room,

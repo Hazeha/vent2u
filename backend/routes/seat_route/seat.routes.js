@@ -35,29 +35,6 @@ module.exports = (app) => {
    /**
     * @swagger
     *
-    * /api/seat_by_room_id/{room_id}:
-    *   get:
-    *     description: Gets a seats by room id
-    *     produces:
-    *       - application/json
-    *     tags:
-    *       - Seat
-    *     parameters:
-    *       - in: path
-    *         name: room_id
-    *         description: id of the seat
-    *         
-    *         required: true
-    *         type: integer
-    *     responses:
-    *       200:
-    *         description: Room object
-    */
-   app.get('/api/seat_by_room_id/:id', seats.getByRoomId);
-
-   /**
-    * @swagger
-    *
     * /api/seat/:
     *   post:
     *     description: Adds the seat
