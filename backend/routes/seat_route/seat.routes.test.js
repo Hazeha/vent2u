@@ -4,42 +4,42 @@
 const request = require('supertest');
 const app = require('../../server');
 
-describe('preset route', () => {
-  it('should get a preset by user id', async (done) => {
+describe('seat route', () => {
+  it('should get a seat by id', async (done) => {
     await request(app)
-      .get('/preset/1')
+      .get('/api/seat_specific/1')
       .then((response) => {
         const {
           id,
+          room,
+          position,
           temp,
           fan,
-          light,
-          seat,
           user_id,
-        } = response.body[0];
+        } = response.body;
         expect([
           id,
+          room,
+          position,
           temp,
           fan,
-          light,
-          seat,
           user_id])
           .toEqual([
             1,
-            1,
-            1,
-            1,
-            1,
-            1,
+            "1",
+            "1",
+            "60",
+            "1",
+            "1",
           ]);
         done();
       });
   });
 
-  it('should add a preset', async (done) => {
+  it('should add a seat', async (done) => {
     await request(app)
       .post(
-        '/preset/',
+        '/api/seat/',
       )
       .send(
         {
@@ -54,16 +54,16 @@ describe('preset route', () => {
         expect(
           response.status,
         ).toEqual(
-          200,
+          201,
         );
         done();
       });
   });
 
-  it('should remove a preset', async (done) => {
+  it('should remove a seat', async (done) => {
     await request(app)
       .post(
-        '/preset/',
+        '/api/seat/',
       )
       .send(
         {
@@ -77,7 +77,7 @@ describe('preset route', () => {
       .then((response) => {
         const { id } = response.body;
         request(app)
-          .delete(`/preset/${id}`)
+          .delete(`/api/seat/${id}`)
           .then((response) => {
             expect([response.status, response.body.id])
               .toEqual([200, id.toString()]);
@@ -86,42 +86,10 @@ describe('preset route', () => {
       });
   });
 
-  it('should get a preset by preset id', async (done) => { 
-        await request(app)
-          .get('/preset_specific/1')
-          .then((response) => {
-            const {
-              id,
-              temp,
-              fan,
-              light,
-              seat,
-              user_id,
-            } = response.body;
-            expect([
-                id,
-                temp,
-                fan,
-                light,
-                seat,
-                user_id
-              ])
-              .toEqual([
-                1,
-                1,
-                1,
-                1,
-                1,
-                1,
-              ]);
-            done();
-          });
-  })
-
-  it('should remove a preset', async (done) => {
+  it('should remove a seat', async (done) => {
       await request(app)
         .post(
-          '/preset/',
+          '/api/seat/',
         )
         .send({
           temp: 1,
@@ -135,7 +103,7 @@ describe('preset route', () => {
             id
           } = response.body;
           request(app)
-            .put(`/preset/${id}`)
+            .put(`/api/seat/${id}`)
             .send({
                temp: 2,
                  fan: 3,
@@ -145,7 +113,7 @@ describe('preset route', () => {
             })
             .then((response) => {
               expect([response.status, response.body.message])
-                .toEqual([200, 'Presets was updated successfully.']);
+                .toEqual([200, 'Seat was updated successfully.']);
               done();
             });
         });
