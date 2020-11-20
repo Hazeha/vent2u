@@ -8,7 +8,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -20,7 +20,7 @@ import { CheckinComponent } from './components/checkin/checkin.component';
 import { LightsComponent } from './components/lights/lights.component';
 import { SettingsComponent } from './components/settings/settings.component';
 
-import{ LoginModalComponent } from "./components/checkin/modal/model.component";
+import { LoginModalComponent } from './components/checkin/modal/model.component';
 
 
 import { OTempComponent } from './components/temperature/OutsideTemp/otemp.component';
@@ -29,7 +29,7 @@ import { OTempModule } from './components/temperature/OutsideTemp/otemp.module';
 import { CelsiusPipe } from '../celsius.pipe';
 
 
-// FUCK THIS!
+// F....
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatMenuModule} from '@angular/material/menu';
@@ -41,11 +41,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 
 import { MaterialModule } from '../_material/material.module';
-import {UserService} from "../_services/user.service";
-import {PresetService} from "../_services/preset.service";
-import {MatDialogModule} from "@angular/material/dialog";
+import {UserService} from '../_services/user.service';
+import {PresetService} from '../_services/preset.service';
+import {MatDialogModule} from '@angular/material/dialog';
 
-
+import {DialogPresetComponent, DialogDataComponent} from './components/settings/account.component';
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     LoginModalComponent,
     OTempComponent,
     CelsiusPipe,
-
+    DialogPresetComponent,
+    DialogDataComponent
   ],
   imports: [
     CommonModule,
@@ -79,6 +81,8 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatSelectModule,
     MatButtonModule,
     MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
 
   ],
   exports: [

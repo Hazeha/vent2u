@@ -6,7 +6,6 @@ import {PresetService} from '../../../_services/preset.service';
 import { LoginModalComponent } from "./modal/model.component";
 
 export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
 }
 @Component({
   selector: 'app-checkin',
@@ -22,11 +21,15 @@ export class CheckinComponent implements OnInit {
   currentIndex = null;
   private seatData: any;
 
-  constructor(private roomService: RoomService, private seatService: SeatService, private presetService: PresetService, public dialog: MatDialog) { }
+  constructor(private roomService: RoomService,
+              private seatService: SeatService,
+              private presetService: PresetService,
+              public dialog: MatDialog) { }
 
 
   ngOnInit(): void {
     this.getRooms();
+    // TODO Update ID
     this.getPresets(1);
   }
   getPresets(id): void {

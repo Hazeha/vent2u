@@ -1,0 +1,36 @@
+<div mat-dialog-title class="dialog_heading">
+  Account Settings
+</div>
+<div mat-dialog-content>
+
+  <form class="example-form">
+    <span>Name : </span>
+    <mat-form-field class="example-full-width">
+      <mat-label>{{this.userService.id}}Name</mat-label>
+      <input type="name" matInput [formControl]="nameFormControl"
+             placeholder="{{data.user}}" apperence="outline" #name>
+    </mat-form-field>
+
+
+    <span>user : </span>
+    <mat-form-field class="example-full-width">
+      <mat-label>username</mat-label>
+      <input type="username" matInput [formControl]="userFormControl"
+             placeholder="{{currentUser.username}}" apperence="outline" #user>
+    </mat-form-field>
+
+    <span>Email : </span>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input type="Email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="{{currentUser.Email}}" apperence="outline" #email>
+    </mat-form-field>
+    <br>
+    <span>{{name}} : name</span>
+    <span>{{user}} : username</span>
+    <span>{{email}} : Email</span>
+    <button mat-raised-button (click)="saveSettings();">Submit</button>
+  </form>
+
+
+</div>

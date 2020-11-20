@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from "../../../_services/user.service";
-import {PresetService} from "../../../_services/preset.service";
+import {UserService} from '../../../_services/user.service';
+import {PresetService} from '../../../_services/preset.service';
+import {DialogDataComponent, DialogPresetComponent} from './account.component';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-settings',
@@ -9,7 +11,7 @@ import {PresetService} from "../../../_services/preset.service";
 })
 export class SettingsComponent implements OnInit {
 
-  constructor(private userService: UserService, private presetService: PresetService) { }
+  constructor(private userService: UserService, private presetService: PresetService, public dialog: MatDialog) { }
 
   private msg: string;
   currentUser = null;
@@ -45,5 +47,23 @@ export class SettingsComponent implements OnInit {
       });
   }
 
+  accDialog(): void {
 
+    this.dialog.open(DialogDataComponent, {
+      data: {
+        username: 'usernames'
+      }
+    });
+  }
+  // openDialog(): void {
+  //   this.dialog.open(accountComponent);
+  //   this.dialog.open.openDialog();
+  // }
+  preDialog(): void {
+    this.dialog.open(DialogPresetComponent, {
+      data: {
+        username: 'usernames'
+      }
+    });
+  }
 }

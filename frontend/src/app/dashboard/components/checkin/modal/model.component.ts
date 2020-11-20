@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PresetService} from "../../../../_services/preset.service";
+import {PresetService} from '../../../../_services/preset.service';
 
 @Component({
   selector: 'app-login-modal',
