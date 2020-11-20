@@ -3,10 +3,8 @@ const db = require('../models');
 
 const User = db.user;
 
-// TODO Make some kind of login service!
 exports.getInfo = (req, res) => {
   const testUserId = req.params.id;
-  // TODO Make this throw error if no user is found.
   // This is not needed atm. Header does already show "login" if currentUser = Null
   if (testUserId === 0) {
     res.status(400).send({

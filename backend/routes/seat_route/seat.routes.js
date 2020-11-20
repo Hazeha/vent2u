@@ -125,4 +125,3 @@ module.exports = (app) => {
   app.put('/api/seat/:id', seats.putSeat)
 };
 
-// TODO In data base create trigger for activation of vents and seats.

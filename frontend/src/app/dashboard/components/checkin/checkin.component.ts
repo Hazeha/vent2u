@@ -44,7 +44,6 @@ export class CheckinComponent implements OnInit {
   }
   setRoom(id) {
     this.currentRoom = id;
-    console.log(this.currentRoom, 'set as current room');
     this.getSeats();
 
 
@@ -61,7 +60,6 @@ export class CheckinComponent implements OnInit {
   }
   setSeat(id) {
     this.currentSeat = id;
-    console.log(this.currentSeat, 'set as current seat');
 
   }
 
@@ -77,7 +75,6 @@ export class CheckinComponent implements OnInit {
           this.currentPresets.room = this.currentRoom;
         }
       );
-    console.log('Seat and Room Selected');
     this.openDialog();
     this.updateSeat();
   }
@@ -95,7 +92,6 @@ export class CheckinComponent implements OnInit {
     };
     this.seatService.putSeat(this.currentSeat, data).subscribe( response => {
       this.seats.user_id = this.currentSeat;
-      console.log(data);
     });
   }
 }

@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Retrieve all Tutorials from the database.
 exports.getAll = (req, res) => {
     const room = req.params.room;
-    Seat.findAll( { where : { room: room }})// TODO set this to selected value
+    Seat.findAll( { where : { room: room }})
         .then(data => {
             res.send(data);
         })
