@@ -50,47 +50,4 @@ export class TemperatureComponent implements OnInit{
         error => {
         });
   }
-
-/** Not in use
-    testId = '1';
-    @Input() temp;
-    @Input() fan;
-    @Output() temperatureEvent = new EventEmitter<number>();
-    shadowToggle = true;
-
-
-    onTempChanged(value: number) {
-        this.temperatureEvent.emit(value);
-    }
-
- TODO Need to make some kind of updater to db
-  formatTemperature(value: number) {
-    this.temperature = value;
-    return this.temperature + '\u00B0';
-  }
-  changeTemperature(event: any) {
-    this.temperature = event.value;
-    this.presetService.temp = this.temperature;
-    return;
-  }
-  formatFanSpeed(value: number) {
-    this.fanSpeed = value;
-    return this.fanSpeed + '%';
-  }
-  changeFanSpeed(event: any) {
-    this.fanSpeed = event.value;
-    this.presetService.fan = this.fanSpeed;
-    return;
-  }
-
-  getPresets(id){
-    this.presetService.getPresets(id).subscribe(data => {
-        this.currentPreset = data;
-        console.log(data);
-      },
-      error => {
-        console.log(error);
-      });
-  }
-*/
 }

@@ -10,7 +10,6 @@ import { DashboardModule } from './dashboard/dashboard.module';
 
 
 import { AuthModule } from './auth/auth.module';
-// Modules TODO Should be moved to dashboard.
 
 import { LogoutComponent } from './_components/Header/logout/logout.component';
 import { MatButtonModule } from '@angular/material/button';

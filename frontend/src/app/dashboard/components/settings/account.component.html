@@ -6,7 +6,7 @@
   <form class="example-form">
     <span>Name : </span>
     <mat-form-field class="example-full-width">
-      <mat-label>{{this.userService.id}}Name</mat-label>
+      <mat-label>Name</mat-label>
       <input type="name" matInput [formControl]="nameFormControl"
              placeholder="{{data.user}}" apperence="outline" #name>
     </mat-form-field>
@@ -16,14 +16,14 @@
     <mat-form-field class="example-full-width">
       <mat-label>username</mat-label>
       <input type="username" matInput [formControl]="userFormControl"
-             placeholder="{{currentUser.username}}" apperence="outline" #user>
+             placeholder="" apperence="outline" #user>
     </mat-form-field>
 
     <span>Email : </span>
     <mat-form-field class="example-full-width">
       <mat-label>Email</mat-label>
       <input type="Email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-             placeholder="{{currentUser.Email}}" apperence="outline" #email>
+             placeholder="" apperence="outline" #email>
     </mat-form-field>
     <br>
     <span>{{name}} : name</span>

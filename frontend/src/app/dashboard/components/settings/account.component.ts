@@ -17,8 +17,7 @@ export interface PresetData {
 
 @Component({
   templateUrl: `./account.component.html`,
-  selector: 'dialog-data',
-  providers: [UserService]
+  selector: 'dialog-data'
 })
 export class DialogDataComponent {
   currentUser: any;
@@ -30,7 +29,7 @@ export class DialogDataComponent {
   message: any;
   newData: any;
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: AccountData,
+    @Inject(MAT_DIALOG_DATA) public data: any,
     private userService: UserService,
     private settingsComponent: SettingsComponent
   ) {}
@@ -41,7 +40,7 @@ export class DialogDataComponent {
       first_name: this.nameFormControl,
       email: this.emailFormControl
     };
-    this.userService.putSettings(this.settingsComponent., this.newData)
+    this.userService.putSettings(this.settingsComponent, this.newData)
       .subscribe(
         response => {
           this.currentUser.username = this.nameFormControl;

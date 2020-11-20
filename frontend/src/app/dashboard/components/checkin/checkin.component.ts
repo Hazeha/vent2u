@@ -29,7 +29,6 @@ export class CheckinComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRooms();
-    // TODO Update ID
     this.getPresets(1);
   }
   getPresets(id): void {
@@ -91,7 +90,12 @@ export class CheckinComponent implements OnInit {
     // this.updateSeat();
   }
   openDialog() {
-    this.dialog.open(LoginModalComponent);
+    this.dialog.open(LoginModalComponent, {
+      data: {
+        selectedSeat: this.currentSeat,
+        selectedRoom: this.currentRoom
+      }
+    });
   }
   // updateSeat(){
   //   const data = {
