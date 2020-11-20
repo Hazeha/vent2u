@@ -65,6 +65,7 @@ export class SettingsComponent implements OnInit {
   preDialog(): void {
     this.dialog.open(DialogPresetComponent, {
       data: {
+        id: this.currentPreset.id,
         temp: this.currentPreset.temp,
         fan: this.currentPreset.fan,
         light: this.currentPreset.light

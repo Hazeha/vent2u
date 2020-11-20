@@ -3,7 +3,7 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { SeatService } from '../../../_services/seat.service';
 import { RoomService } from '../../../_services/room.service';
 import {PresetService} from '../../../_services/preset.service';
-import { LoginModalComponent } from "./modal/model.component";
+import { LoginModalComponent } from './modal/model.component';
 
 export interface DialogData {
 }
@@ -18,8 +18,6 @@ export class CheckinComponent implements OnInit {
   currentPresets: any;
   currentRoom = null;
   currentSeat = null;
-  currentIndex = null;
-  private seatData: any;
 
   constructor(private roomService: RoomService,
               private seatService: SeatService,
@@ -79,15 +77,9 @@ export class CheckinComponent implements OnInit {
           this.currentPresets.room = this.currentRoom;
         }
       );
-    // this.seatService.putSeat(this.currentSeat.id, data)
-    //   .subscribe(
-    //   response => {
-    //     this.currentSeat.user_id = this.currentPresets.user_id;
-    //   }
-    // );
     console.log('Seat and Room Selected');
     this.openDialog();
-    // this.updateSeat();
+    this.updateSeat();
   }
   openDialog() {
     this.dialog.open(LoginModalComponent, {
@@ -97,22 +89,13 @@ export class CheckinComponent implements OnInit {
       }
     });
   }
-  // updateSeat(){
-  //   const data = {
-  //     user_id: this.currentPresets.user_id
-  //   };
-  //   this.ventService.putSeat(this.currentSeat, data).subscribe( response => {
-  //     this.vents.user_id = this.currentSeat;
-  //   });
-  // }
-  // This is when the checkin button is pressed.
-  // There should also be some update/put function.
-
-
-  // selectedRoomID: string;
-  // selectedSeatID: string;
-  // chairGroup: string;
-  //
-  // resultRoom: [];
-
+  updateSeat(){
+    const data = {
+      user_id: this.currentPresets.user_id
+    };
+    this.seatService.putSeat(this.currentSeat, data).subscribe( response => {
+      this.seats.user_id = this.currentSeat;
+      console.log(data);
+    });
+  }
 }

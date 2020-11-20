@@ -11,9 +11,19 @@ import { PresetService } from '../../../_services/preset.service';
 export class TemperatureComponent implements OnInit{
   testId = 1;
   message = '';
-  currentPresets: any;
+  currentPresets: any = {
+    createdAt: '2020-11-20T08:55:05.000Z',
+    fan: 100,
+    id: 1,
+    light: 1,
+    seat: 1,
+    temp: 1,
+    updatedAt: '2020-11-20T08:55:05.000Z',
+    user_id: 1
+  };
   dataTemp: any;
   dataFan: any;
+
   constructor(private presetService: PresetService) { }
   ngOnInit(): void {
     this.message = '';

@@ -28,7 +28,7 @@
 <!--    <span>Username: {{data.username}} -> {{username.value}} </span> <br>-->
 <!--    <span>First Name: {{data.firstname}} ->  {{first_name.value}}</span>  <br>-->
 <!--    <span>Last Name: {{data.lastname}} -> {{last_name.value}}</span> <br>-->
-    <button mat-raised-button (click)="saveSettings();">Submit</button>
+    <button mat-raised-button (click)="saveSettings(username.value, first_name.value, last_name.value);">Submit</button>
   </form>
 
 

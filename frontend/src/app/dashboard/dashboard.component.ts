@@ -12,7 +12,16 @@ export class DashboardComponent implements OnInit {
   }
   private message: string;
   currentUser = null;
-  currentPreset: any;
+  currentPreset: any = {
+    createdAt: '2020-11-20T08:55:05.000Z',
+    fan: 100,
+    id: 1,
+    light: 1,
+    seat: 1,
+    temp: 1,
+    updatedAt: '2020-11-20T08:55:05.000Z',
+    user_id: 1
+  };
 
   // This is for testing
   testUserId = 1;

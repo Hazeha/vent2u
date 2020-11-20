@@ -15,7 +15,7 @@ export class UserService {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
 
-  putSettings(id, data): Observable<any> {
+  putUser(id, data): Observable<any> {
     return this.http.put(`${this.baseUrl}/${id}`, data);
   }
 }
