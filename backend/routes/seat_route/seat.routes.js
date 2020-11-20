@@ -33,36 +33,60 @@ module.exports = (app) => {
    app.get('/api/seat/:room', seats.getAll);
 
    /**
-   * @swagger
-   *
-   * /api/seat/:
-   *   post:
-   *     description: Adds the seat
-   *     produces:
-   *       - application/json
-   *     tags:
-   *       - Seat
-   *     requestBody:
-   *       content:
-   *         application/json:  
-   *           schema:
-   *             type: object
-   *             properties:
-   *               room:
-   *                 type: string
-   *               position:
-   *                 type: string
-   *               temp:
-   *                 type: string
-   *               fan:
-   *                 type: string
-   *               user_id:
-   *                 type: string
-   *     responses:
-   *       200:
-   *         description: Preset object
-   */
-   app.post('/api/seat/', seats.addSeat);
+    * @swagger
+    *
+    * /api/seat_by_room_id/{room_id}:
+    *   get:
+    *     description: Gets a seats by room id
+    *     produces:
+    *       - application/json
+    *     tags:
+    *       - Seat
+    *     parameters:
+    *       - in: path
+    *         name: room_id
+    *         description: id of the seat
+    *         
+    *         required: true
+    *         type: integer
+    *     responses:
+    *       200:
+    *         description: Room object
+    */
+   app.get('/api/seat_by_room_id/:id', seats.getByRoomId);
+
+   /**
+    * @swagger
+    *
+    * /api/seat/:
+    *   post:
+    *     description: Adds the seat
+    *     produces:
+    *       - application/json
+    *     tags:
+    *       - Seat
+    *     requestBody:
+    *       content:
+    *         application/json:  
+    *           schema:
+    *             type: object
+    *             properties:
+    *               room:
+    *                 type: string
+    *               position:
+    *                 type: string
+    *               temp:
+    *                 type: string
+    *               fan:
+    *                 type: string
+    *               user_id:
+    *                 type: string
+    *     responses:
+    *       200:
+    *         description: Preset object
+    */
+  app.post('/api/seat/', seats.addSeat);
+  
 
   /**
    * @swagger

@@ -55,6 +55,22 @@ module.exports = (app) => {
      */
   app.get('/api/room/', rooms.getRooms);
 
+    /**
+     * @swagger
+     *
+     * /api/rooms:
+     *   get:
+     *     description: Gets all rooms
+     *     produces:
+     *       - application/json
+     *     tags:
+     *       - room
+     *     responses:
+     *       200:
+     *         description: List of rooms
+     */
+    app.get('/api/rooms', rooms.getRooms);
+
    /**
    * @swagger
    *
