@@ -12,7 +12,6 @@ export class PresetService {
   presetUrl = 'http://localhost:8080/api/preset_specific';
   presetPutUrl = 'http://localhost:8080/api/preset';
   currentPresetID: any;
-  // TODO this need to update on updates. This is for the modal
   seat: 2;
   room: 1;
   constructor(private http: HttpClient) { }

@@ -229,9 +229,9 @@
 const Preset = db.presets;
 const Op = db.Sequelize.Op;
 &nbsp;
-// Create and Send a new Preset TODO Should we have a create or should it be autoconfig?
+// Create and Send a new Preset 
 exports.create = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
-    // Validate request TODO Make validator.
+    // Validate request
 <span class="cstat-no" title="statement not covered" >    if (!req.body.title) {</span>
 <span class="cstat-no" title="statement not covered" >        res.status(400).send({</span>
             message: "Content can not be empty!"
@@ -256,7 +256,6 @@ exports.create = <span class="fstat-no" title="function not covered" >(r</span>e
 &nbsp;
 // Get all Presets with user_id like user_id
 exports.getPresets = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
-    // TODO This Should be remade. so that logged in user id is user_id
     const user_id = <span class="cstat-no" title="statement not covered" >req.params.user_id;</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    Preset.findAll({ where: { user_id: user_id } }).then(<span class="fstat-no" title="function not covered" >da</span>ta =&gt; {</span>

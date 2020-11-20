@@ -146,5 +146,3 @@ module.exports = (app) => {
    */
   app.put('/api/preset/:id', presets.putPreset)
 };
-
-// TODO In data base create trigger for activation of vents and seats.

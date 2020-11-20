@@ -155,4 +155,3 @@ module.exports = (app) => {
   app.put('/api/room/:id', rooms.putRoom)
 };
 
-// TODO In data base create trigger for activation of vents and rooms.

@@ -121,4 +121,3 @@ module.exports = (app) => {
   app.delete('/api/user/:id', user.removeUser);
 };
 
-// TODO In data base create trigger for activation of vents and seats.

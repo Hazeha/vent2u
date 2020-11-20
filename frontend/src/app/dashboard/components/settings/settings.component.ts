@@ -30,20 +30,16 @@ export class SettingsComponent implements OnInit {
       .subscribe(
         data => {
           this.currentUser = data;
-          console.log(data);
         },
         error => {
-          console.log(error);
         });
   }
   // This is for preset loading
   getPresets(id): void{
     this.presetService.getPresets(id).subscribe(data => {
         this.currentPreset = data;
-        console.log(data);
       },
       error => {
-        console.log(error);
       });
   }
 

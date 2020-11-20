@@ -100,7 +100,7 @@ const Op = db.Sequelize.Op;
 // Retrieve all Tutorials from the database.
 exports.getAll = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
     const roomID = <span class="cstat-no" title="statement not covered" >req.query.id;</span>
-<span class="cstat-no" title="statement not covered" >    Vent.findAll( { where : { room: roomID}})// TODO set this to selected value</span>
+<span class="cstat-no" title="statement not covered" >    Vent.findAll( { where : { room: roomID}})</span>
         .then(<span class="fstat-no" title="function not covered" >da</span>ta =&gt; {
 <span class="cstat-no" title="statement not covered" >            res.send(data);</span>
         })

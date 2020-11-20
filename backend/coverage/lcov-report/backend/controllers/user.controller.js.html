@@ -162,10 +162,8 @@ const db = require('../models');
 &nbsp;
 const User = db.user;
 &nbsp;
-// TODO Make some kind of login service!
 exports.getInfo = (req, res) =&gt; {
   const testUserId = req.params.id;
-  // TODO Make this throw error if no user is found.
   // This is not needed atm. Header does already show "login" if currentUser = Null
   <span class="missing-if-branch" title="if path not taken" >I</span>if (testUserId === 0) {
 <span class="cstat-no" title="statement not covered" >    res.status(400).send({</span>

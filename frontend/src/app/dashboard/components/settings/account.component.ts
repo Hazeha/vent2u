@@ -49,7 +49,6 @@ export class DialogDataComponent {
           this.currentUser.first_name = this.fnameFormControl;
           this.currentUser.last_name = this.lnameFormControl;
           this.message = 'Preset Updated';
-          console.log(this.newData);
         },
         error => {
         });
@@ -72,7 +71,6 @@ export class DialogPresetComponent {
     this.presetService.putPresets(this.data.id, this.newData)
       .subscribe(
         response => {
-          console.log(this.newData);
         },
         error => {
         });

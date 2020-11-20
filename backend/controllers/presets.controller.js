@@ -5,7 +5,6 @@ const Preset = db.presets;
 
 // Get all Presets with user_id like user_id
 exports.getInfo = (req, res) => {
-  // TODO This Should be remade. so that logged in user id is user_id
   const {
     user_id
   } = req.params;
@@ -31,7 +30,7 @@ exports.getPreset = (req, res) => {
   });
 };
 
-// Create and Send a new Preset TODO Should we have a create or should it be autoconfig?
+// Create and Send a new Preset
 exports.addPreset = (req, res) => {
     
   // Send Preset data to the database

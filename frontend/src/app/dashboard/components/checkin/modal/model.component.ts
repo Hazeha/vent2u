@@ -12,7 +12,6 @@ export class LoginModalComponent implements OnInit {
   // currentRoom = this.checkinComponent.currentRoom;
   // currentSeat = this.checkinComponent.currentSeat;
   ngOnInit(): void {
-    console.log(this.data);
   }
 
 }
