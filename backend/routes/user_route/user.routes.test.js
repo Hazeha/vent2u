@@ -86,4 +86,37 @@ describe('user route', () => {
           });
       });
   });
+
+  it('should edit an user', async (done) => {
+    await request(app)
+      .post(
+        '/api/user/',
+      )
+      .send({
+        first_name: 'Linh',
+        last_name: 'Phan',
+        username: 'virginSlayer',
+        password: 'maroccan ass',
+
+      })
+      .then((response) => {
+        const {
+          id
+        } = response.body;
+        request(app)
+          .put(`/api/user/${id}`)
+          .send({
+            first_name: 'Xinh',
+            last_name: 'Xhan',
+            username: 'XirginSlayer',
+            password: 'Xaroccan ass',
+  
+          })
+          .then((response) => {
+            expect([response.status, response.body.message])
+              .toEqual([200, 'User was updated successfully.']);
+            done();
+          });
+      });
+  });
 });

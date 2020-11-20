@@ -86,7 +86,7 @@ describe('seat route', () => {
       });
   });
 
-  it('should remove a seat', async (done) => {
+  it('should edit a seat', async (done) => {
       await request(app)
         .post(
           '/api/seat/',
